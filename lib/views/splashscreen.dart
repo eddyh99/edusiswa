@@ -9,6 +9,7 @@ class SplashScreen extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
+        top: false,
         child: FractionallySizedBox(
           heightFactor: 1.0,
           widthFactor: 1.0,
@@ -21,7 +22,7 @@ class SplashScreen extends StatelessWidget {
             ),
             child: Center(
               child: SizedBox(
-                height: 0.1.sh,
+                height: 96.h,
                 child: Image.asset(
                   "assets/images/splash-logo.png",
                   fit: BoxFit.fitHeight,

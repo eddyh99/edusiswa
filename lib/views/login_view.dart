@@ -3,21 +3,21 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:ulife/widgets/textformfield_toplabeled_widget.dart';
 
-class SignUpView extends StatefulWidget {
-  const SignUpView({super.key});
+class LoginView extends StatefulWidget {
+  const LoginView({super.key});
 
   @override
-  State<SignUpView> createState() {
-    return _SignUpViewState();
+  State<LoginView> createState() {
+    return _LoginViewState();
   }
 }
 
-class _SignUpViewState extends State<SignUpView> {
-  final GlobalKey<FormState> _signupFormKey = GlobalKey<FormState>();
-  final TextEditingController _namaTextController = TextEditingController();
+class _LoginViewState extends State<LoginView> {
+  final GlobalKey<FormState> _loginFormKey = GlobalKey<FormState>();
   final TextEditingController _emailTextController = TextEditingController();
   final TextEditingController _passwordTextController = TextEditingController();
-  final TextEditingController _hpTextController = TextEditingController();
+
+  bool _rememberMe = false;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class _SignUpViewState extends State<SignUpView> {
         elevation: 0.0,
         centerTitle: true,
         title: Text(
-          "Daftar Akun",
+          "Masuk",
           style: Theme.of(context).textTheme.displayMedium,
         ),
       ),
@@ -63,13 +63,30 @@ class _SignUpViewState extends State<SignUpView> {
                             ),
                             textAlign: TextAlign.left,
                           ),
+                        ],
+                      ),
+                      Wrap(
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        children: [
+                          Text.rich(
+                            TextSpan(
+                              style: Theme.of(context).textTheme.displayLarge,
+                              children: const [
+                                TextSpan(
+                                  text: "Kembali",
+                                  style: TextStyle(color: Colors.indigo),
+                                ),
+                              ],
+                            ),
+                            textAlign: TextAlign.left,
+                          ),
                           Image.asset(
                             "assets/images/waving-hand-emoji.png",
                           ),
                         ],
                       ),
                       Text(
-                        "Ayo buatlah akun kamu sekarang.",
+                        "Silahkan masuk disini.",
                         style: Theme.of(context)
                             .textTheme
                             .bodyMedium!
@@ -82,34 +99,10 @@ class _SignUpViewState extends State<SignUpView> {
                   height: 40.h,
                 ),
                 Form(
-                  key: _signupFormKey,
+                  key: _loginFormKey,
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      SizedBox(
-                        width: 320.w,
-                        child: TextFormFieldTopLabeled(
-                          labelPadding: EdgeInsets.only(bottom: 8.h),
-                          labelText: "Nama Lengkap",
-                          textFormField: TextFormField(
-                            controller: _namaTextController,
-                            maxLines: 1,
-                            keyboardType: TextInputType.text,
-                            decoration: const InputDecoration(
-                              hintText: "Masukan nama lengkap",
-                            ),
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return "Masukan nama lengkap";
-                              }
-                              return null;
-                            },
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 20.h,
-                      ),
                       SizedBox(
                         width: 320.w,
                         child: TextFormFieldTopLabeled(
@@ -157,47 +150,70 @@ class _SignUpViewState extends State<SignUpView> {
                         ),
                       ),
                       SizedBox(
-                        height: 20.h,
+                        height: 28.h,
                       ),
                       SizedBox(
                         width: 320.w,
-                        child: TextFormFieldTopLabeled(
-                          labelPadding: EdgeInsets.only(bottom: 8.h),
-                          labelText: "No. HP",
-                          textFormField: TextFormField(
-                            controller: _hpTextController,
-                            maxLines: 1,
-                            keyboardType: TextInputType.text,
-                            decoration: const InputDecoration(
-                              hintText: "Masukan No. HP",
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width: 15.w,
+                                  height: 15.h,
+                                  child: Checkbox(
+                                    value: _rememberMe,
+                                    onChanged: (value) {
+                                      if (mounted) {
+                                        setState(() {
+                                          _rememberMe =
+                                              value == true ? true : false;
+                                        });
+                                      }
+                                    },
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 8.w,
+                                ),
+                                Text(
+                                  "Ingat saya",
+                                  style: Theme.of(context).textTheme.bodyMedium,
+                                ),
+                              ],
                             ),
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return "Masukan No. HP";
-                              }
-                              return null;
-                            },
-                          ),
+                            GestureDetector(
+                              onTap: () {},
+                              child: Text("Lupa Password ?",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium!
+                                      .copyWith(color: Colors.amber)),
+                            )
+                          ],
                         ),
                       ),
                       SizedBox(
-                        height: 49.h,
+                        height: 57.h,
                       ),
                       SizedBox(
                         width: 320.w,
                         height: 40.h,
                         child: ElevatedButton(
                           onPressed: () {
-                            if (_signupFormKey.currentState!.validate()) {}
+                            if (_loginFormKey.currentState!.validate()) {
+                              Get.offAllNamed("/dashboard/");
+                            }
                           },
-                          child: const Text("Daftar"),
+                          child: const Text("Masuk"),
                         ),
                       ),
                     ],
                   ),
                 ),
                 SizedBox(
-                  height: 27.h,
+                  height: 50.h,
                 ),
                 Container(
                   margin: EdgeInsets.only(bottom: 10.h),
@@ -206,17 +222,17 @@ class _SignUpViewState extends State<SignUpView> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("Sudah memiliki akun? ",
+                          Text("Tidak memiliki akun? ",
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyMedium!
                                   .copyWith(color: Colors.grey)),
                           GestureDetector(
                             onTap: () {
-                              Get.toNamed("/login");
+                              Get.toNamed("/signup");
                             },
                             child: Text(
-                              "Masuk",
+                              "Daftar",
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyMedium!
@@ -250,34 +266,6 @@ class _SignUpViewState extends State<SignUpView> {
                           Image.asset(
                             "assets/images/apple.png",
                             scale: 1.2,
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 20.h,
-                      ),
-                      Text("Dengan mendaftar Anda telah",
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyMedium!
-                              .copyWith(color: Colors.grey)),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text("menyetujui ",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyMedium!
-                                  .copyWith(color: Colors.grey)),
-                          GestureDetector(
-                            onTap: () {},
-                            child: Text(
-                              "Term & Condition",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyMedium!
-                                  .copyWith(color: Colors.indigo),
-                            ),
                           ),
                         ],
                       ),

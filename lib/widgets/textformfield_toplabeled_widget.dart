@@ -22,7 +22,10 @@ class TextFormFieldTopLabeled extends StatelessWidget {
         labelText != null || labelText != ""
             ? Padding(
                 padding: labelPadding,
-                child: Text(labelText!),
+                child: Text(
+                  labelText!,
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
               )
             : SizedBox.shrink(
                 child: Padding(

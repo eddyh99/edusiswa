@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:ulife/views/dashboard/main.dart';
+import 'package:ulife/views/login_view.dart';
 import 'package:ulife/views/signup_view.dart';
 import 'package:ulife/views/splashscreen.dart';
 
@@ -10,6 +12,9 @@ void main() async {
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent, // transparent status bar
+  ));
   runApp(const UlifeApp());
 }
 
@@ -28,7 +33,7 @@ class UlifeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(720, 1280),
+      designSize: const Size(360, 800),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
@@ -43,30 +48,42 @@ class UlifeApp extends StatelessWidget {
             appBarTheme: AppBarTheme(
                 backgroundColor: Theme.of(context).scaffoldBackgroundColor),
             textTheme: TextTheme(
-              headline1: TextStyle(
+              displayLarge: TextStyle(
                   fontWeight: FontWeight.w600,
-                  fontSize: 48.sp), //Judul besar, judul utama, semi bold, 24
-              headline2: TextStyle(
+                  fontSize: 24.sp), //Judul besar, judul utama, semi bold, 24
+              displayMedium: TextStyle(
                   fontWeight: FontWeight.w600,
-                  fontSize: 40.sp), //Judul besar, menu halaman, semi bold, 20
-              headline3: TextStyle(
+                  fontSize: 20.sp), //Judul besar, menu halaman, semi bold, 20
+              displaySmall: TextStyle(
                   fontWeight: FontWeight.w600,
-                  fontSize: 32.sp), //Judul 2, pilihan kategori, 16
-              subtitle1: TextStyle(
-                  fontWeight: FontWeight.w300,
-                  fontSize: 28.sp), //Judul sub menu, reguler, 14
-              subtitle2: TextStyle(
+                  fontSize: 16.sp), //Judul 2, pilihan kategori, semi bold, 16
+              headlineLarge: TextStyle(
                   fontWeight: FontWeight.w500,
-                  fontSize: 28.sp), //Judul sub menu, medium, 14
-              bodyText1: TextStyle(
+                  fontSize: 24.sp), //Judul besar, judul utama, medium, 24
+              headlineMedium: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 20.sp), //Judul besar, menu halaman, medium, 20
+              headlineSmall: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16.sp), //Judul 2, pilihan kategori, medium, 16
+              titleLarge: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 14.sp), //Judul sub menu, semi bold, 14
+              titleMedium: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 14.sp), //Judul sub menu, medium, 14
+              titleSmall: TextStyle(
                   fontWeight: FontWeight.w400,
-                  fontSize: 24.sp), //Teks paragraf, reguler, 12
-              bodyText2: TextStyle(
+                  fontSize: 14.sp), //Judul sub menu, reguler, 14
+              bodyLarge: TextStyle(
                   fontWeight: FontWeight.w500,
-                  fontSize: 24.sp), //Teks paragraf, medium, 12
-              caption: TextStyle(
+                  fontSize: 16.sp), //Untuk nama pengguna, medium, 16,
+              bodyMedium: TextStyle(
                   fontWeight: FontWeight.w500,
-                  fontSize: 32.sp), //Untuk nama pengguna, medium, 16
+                  fontSize: 12.sp), //Teks paragraf, medium, 12
+              bodySmall: TextStyle(
+                  fontWeight: FontWeight.w400,
+                  fontSize: 12.sp), //Teks paragraf, reguler, 12
             ).apply(
               displayColor: Colors.black,
               bodyColor: Colors.black,
@@ -90,11 +107,14 @@ class UlifeApp extends StatelessWidget {
             inputDecorationTheme: InputDecorationTheme(
               isDense: true,
               errorStyle: const TextStyle(fontSize: 0.01),
+              constraints: BoxConstraints(
+                maxHeight: 40.h,
+              ),
               contentPadding:
-                  EdgeInsets.symmetric(horizontal: 20.w, vertical: 15.h),
+                  EdgeInsets.symmetric(horizontal: 11.w, vertical: 13.h),
               hintStyle: Theme.of(context)
                   .textTheme
-                  .bodyText2!
+                  .bodyMedium!
                   .copyWith(color: Colors.grey.shade300),
               border: const OutlineInputBorder(),
               enabledBorder: OutlineInputBorder(
@@ -126,7 +146,7 @@ class UlifeApp extends StatelessWidget {
                 ),
               ),
               disabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20.0),
+                borderRadius: BorderRadius.circular(5.0),
                 borderSide: BorderSide(
                   width: 1.5,
                   color: Colors.grey.shade300,
@@ -141,33 +161,45 @@ class UlifeApp extends StatelessWidget {
             appBarTheme: AppBarTheme(
                 backgroundColor: Theme.of(context).scaffoldBackgroundColor),
             textTheme: TextTheme(
-              headline1: TextStyle(
+              displayLarge: TextStyle(
                   fontWeight: FontWeight.w600,
-                  fontSize: 48.sp), //Judul besar, judul utama, semi bold, 24
-              headline2: TextStyle(
+                  fontSize: 24.sp), //Judul besar, judul utama, semi bold, 24
+              displayMedium: TextStyle(
                   fontWeight: FontWeight.w600,
-                  fontSize: 40.sp), //Judul besar, menu halaman, semi bold, 20
-              headline3: TextStyle(
+                  fontSize: 20.sp), //Judul besar, menu halaman, semi bold, 20
+              displaySmall: TextStyle(
                   fontWeight: FontWeight.w600,
-                  fontSize: 32.sp), //Judul 2, pilihan kategori, 16
-              subtitle1: TextStyle(
+                  fontSize: 16.sp), //Judul 2, pilihan kategori, semi bold, 16
+              headlineLarge: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 24.sp), //Judul besar, judul utama, medium, 24
+              headlineMedium: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 20.sp), //Judul besar, menu halaman, medium, 20
+              headlineSmall: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16.sp), //Judul 2, pilihan kategori, medium, 16
+              titleLarge: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 14.sp), //Judul sub menu, semi bold, 14
+              titleMedium: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 14.sp), //Judul sub menu, medium, 14
+              titleSmall: TextStyle(
                   fontWeight: FontWeight.w400,
-                  fontSize: 28.sp), //Judul sub menu, reguler, 14
-              subtitle2: TextStyle(
+                  fontSize: 14.sp), //Judul sub menu, reguler, 14
+              bodyLarge: TextStyle(
                   fontWeight: FontWeight.w500,
-                  fontSize: 28.sp), //Judul sub menu, medium, 14
-              bodyText1: TextStyle(
+                  fontSize: 16.sp), //Untuk nama pengguna, medium, 16,
+              bodyMedium: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 12.sp), //Teks paragraf, medium, 12
+              bodySmall: TextStyle(
                   fontWeight: FontWeight.w400,
-                  fontSize: 24.sp), //Teks paragraf, reguler, 12
-              bodyText2: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 24.sp), //Teks paragraf, medium, 12
-              caption: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 32.sp), //Untuk nama pengguna, medium, 16
+                  fontSize: 12.sp), //Teks paragraf, reguler, 12
             ).apply(
-              displayColor: Colors.white,
-              bodyColor: Colors.white,
+              displayColor: Colors.black,
+              bodyColor: Colors.black,
               decorationColor: Colors.grey,
             ),
             textSelectionTheme: TextSelectionThemeData(
@@ -188,11 +220,14 @@ class UlifeApp extends StatelessWidget {
             inputDecorationTheme: InputDecorationTheme(
               isDense: true,
               errorStyle: const TextStyle(fontSize: 0.01),
+              constraints: BoxConstraints(
+                maxHeight: 40.h,
+              ),
               contentPadding:
-                  EdgeInsets.symmetric(horizontal: 20.w, vertical: 15.h),
+                  EdgeInsets.symmetric(horizontal: 11.w, vertical: 13.h),
               hintStyle: Theme.of(context)
                   .textTheme
-                  .bodyText2!
+                  .bodyMedium!
                   .copyWith(color: Colors.grey.shade700),
               border: const OutlineInputBorder(),
               enabledBorder: OutlineInputBorder(
@@ -224,7 +259,7 @@ class UlifeApp extends StatelessWidget {
                 ),
               ),
               disabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20.0),
+                borderRadius: BorderRadius.circular(5.0),
                 borderSide: BorderSide(
                   width: 1.5,
                   color: Colors.grey.shade700,
@@ -242,6 +277,14 @@ class UlifeApp extends StatelessWidget {
             GetPage(
               name: '/signup',
               page: () => const SignUpView(),
+            ),
+            GetPage(
+              name: '/login',
+              page: () => const LoginView(),
+            ),
+            GetPage(
+              name: '/dashboard/',
+              page: () => const DashboardMain(),
             ),
           ],
         );
@@ -263,7 +306,7 @@ class _AppMainState extends State<AppMain> {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       Future.delayed(const Duration(seconds: 3), () {
-        Get.offNamed("/register");
+        Get.offNamed("/signup");
       });
     });
   }

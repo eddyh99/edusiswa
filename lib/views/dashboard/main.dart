@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:line_icons/line_icon.dart';
-import 'package:ulife/widgets/cards_detailbadge_widget.dart';
-import 'package:ulife/widgets/cards_ribbon_widget.dart';
-import 'package:ulife/widgets/icons_notifbadge_widget.dart';
-import 'package:banner_carousel/banner_carousel.dart';
-import 'package:ulife/widgets/kategoripaket_card_widget.dart';
-import 'package:ulife/widgets/paket_card_widget.dart';
-import 'package:ulife/widgets/paket_chip_widget.dart';
-import 'package:ulife/widgets/paket_rating_widget.dart';
+import 'package:line_icons/line_icons.dart';
+import 'package:ulife/views/dashboard/dashboardpages/account_view.dart';
+import 'package:ulife/views/dashboard/dashboardpages/home_view.dart';
+import 'package:ulife/views/dashboard/dashboardpages/liveclass_view.dart';
+import 'package:ulife/views/dashboard/dashboardpages/myclass_view.dart';
+import 'package:ulife/views/dashboard/dashboardpages/transaction_view.dart';
 
 class DashboardMain extends StatefulWidget {
   const DashboardMain({super.key});
@@ -20,532 +17,77 @@ class DashboardMain extends StatefulWidget {
 }
 
 class _DashboardMainState extends State<DashboardMain> {
+  final PageController _pageController = PageController();
+
+  int _pageIndex = 0;
   @override
   Widget build(BuildContext context) {
-    TextTheme textTheme = Theme.of(context).textTheme;
-    return DefaultTabController(
-      length: 5,
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: SafeArea(
-          top: false,
-          child: FractionallySizedBox(
-            heightFactor: 1.0,
-            widthFactor: 1.0,
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Column(
-                    verticalDirection: VerticalDirection.down,
-                    children: [
-                      Container(
-                        width: double.infinity,
-                        height: 194.h,
-                        decoration: const BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage("assets/images/header-bg.png"),
-                            fit: BoxFit.cover,
-                          ),
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(30),
-                            bottomRight: Radius.circular(30),
-                          ),
-                        ),
-                        child: Container(
-                          margin: EdgeInsets.only(top: 30.h),
-                          width: 320.w,
-                          child: ListTile(
-                            horizontalTitleGap: 9.w,
-                            minVerticalPadding: 2.h,
-                            leading: CircleAvatar(
-                              backgroundImage: Image.network(
-                                "https://placeimg.com/50/50/people",
-                                height: 50.h,
-                                width: 50.w,
-                              ).image,
-                            ),
-                            title: Text(
-                              "Miracle Culhane",
-                              style: textTheme.bodyLarge!
-                                  .copyWith(color: Colors.white),
-                            ),
-                            subtitle: Text(
-                              "125.030.000 UCoin",
-                              style: textTheme.bodySmall!
-                                  .copyWith(color: Colors.white70),
-                            ),
-                            trailing: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                IconsNotificationBadge(
-                                  counter: "12",
-                                  counterSize: 9.sp,
-                                  child: GestureDetector(
-                                    onTap: () {},
-                                    child: LineIcon.shoppingCart(
-                                      size: 32.sp,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 12.75.w,
-                                ),
-                                IconsNotificationBadge(
-                                  counter: "34",
-                                  counterSize: 9.sp,
-                                  child: GestureDetector(
-                                    onTap: () {},
-                                    child: LineIcon.envelope(
-                                      size: 32.sp,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 12.75.w,
-                                ),
-                                IconsNotificationBadge(
-                                  counter: "7",
-                                  counterSize: 9.sp,
-                                  child: GestureDetector(
-                                    onTap: () {},
-                                    child: LineIcon.bell(
-                                      size: 32.sp,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Transform.translate(
-                        offset: Offset(0, -70.h),
-                        child: BannerCarousel(
-                          customizedBanners: [
-                            Card(
-                              child: Image.asset(
-                                "assets/images/promo-banner-1.png",
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                            Card(
-                              child: Image.asset(
-                                "assets/images/promo-banner-2.png",
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                            Card(
-                              child: Image.asset(
-                                "assets/images/promo-banner-3.png",
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ],
-                          customizedIndicators: IndicatorModel.animation(
-                              width: 5.w,
-                              height: 5.h,
-                              spaceBetween: 4.w,
-                              widthAnimation: 27.w),
-                          activeColor: Colors.indigo,
-                          disableColor: Colors.grey,
-                          animation: true,
-                          borderRadius: 10.r,
-                          height: 120.h,
-                          width: 320.w,
-                          indicatorBottom: true,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 9.h,
-                  ),
-                  Transform.translate(
-                    offset: Offset(0, -70.h),
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          width: 320.w,
-                          child: Text(
-                            "Kategori Paket",
-                            style: textTheme.displaySmall,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 9.h,
-                        ),
-                        SizedBox(
-                          width: 320.w,
-                          height: 150.h,
-                          child: ListView(
-                            scrollDirection: Axis.horizontal,
-                            children: [
-                              KategoriPaketCard(
-                                height: 150.h,
-                                width: 102.w,
-                                backgroundImage:
-                                    "assets/images/paket-bg-indigo.png",
-                                borderRadius: 8.r,
-                                title: "UEducation",
-                                subtitle:
-                                    "Belajar lebih mudah menyenangkan dengan UEducation",
-                                illustrationImage:
-                                    "assets/images/ueducation-illustration.png",
-                              ),
-                              SizedBox(
-                                width: 6.w,
-                              ),
-                              KategoriPaketCard(
-                                height: 150.h,
-                                width: 102.w,
-                                backgroundImage:
-                                    "assets/images/paket-bg-red.png",
-                                borderRadius: 8.r,
-                                title: "UTalent",
-                                subtitle:
-                                    "Belajar lebih mudah menyenangkan dengan UTalent",
-                                illustrationImage:
-                                    "assets/images/utalent-illustration.png",
-                              ),
-                              SizedBox(
-                                width: 6.w,
-                              ),
-                              KategoriPaketCard(
-                                height: 150.h,
-                                width: 102.w,
-                                backgroundImage:
-                                    "assets/images/paket-bg-blue.png",
-                                borderRadius: 8.r,
-                                title: "codU",
-                                subtitle:
-                                    "Belajar lebih mudah menyenangkan dengan codU",
-                                illustrationImage:
-                                    "assets/images/codu-illustration.png",
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          height: 9.h,
-                        ),
-                        SizedBox(
-                          width: 320.w,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "UEducation",
-                                style: textTheme.displaySmall,
-                              ),
-                              Row(
-                                children: [
-                                  Text(
-                                    "Lihat semua",
-                                    style: textTheme.displaySmall!
-                                        .copyWith(color: Colors.indigo),
-                                  ),
-                                  const Icon(
-                                    Icons.chevron_right_outlined,
-                                    color: Colors.indigo,
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          height: 14.h,
-                        ),
-                        //UEducation paket list
-                        SizedBox(
-                          height: 120.h,
-                          child: ListView(
-                            shrinkWrap: true,
-                            padding: EdgeInsets.symmetric(horizontal: 20.w),
-                            scrollDirection: Axis.horizontal,
-                            children: [
-                              //dummy data generate
-                              for (int x = 0; x < 3; x++) ...[
-                                PaketCard(
-                                  height: 120.h,
-                                  width: 320.w,
-                                  margin: x < 2
-                                      ? EdgeInsets.only(right: 20.w)
-                                      : null,
-                                  borderRadius: 10.r,
-                                  contentMargin: EdgeInsets.symmetric(
-                                      horizontal: 10.sp, vertical: 10.sp),
-                                  leadingImage: Image.asset(
-                                    "assets/images/paket-leading-image.png",
-                                    fit: BoxFit.fill,
-                                    height: 100.sp,
-                                    width: 100.sp,
-                                  ),
-                                  leadingBorderRadius: 12.r,
-                                  title: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      const PaketChip(text: "Baca Tulis"),
-                                      FittedBox(
-                                        fit: BoxFit.scaleDown,
-                                        child: Text(
-                                          "Baca Tulis untuk TK",
-                                          overflow: TextOverflow.ellipsis,
-                                          style: textTheme.bodyLarge!
-                                              .copyWith(height: 1.3.h),
-                                        ),
-                                      ), //Paket title
-                                    ],
-                                  ),
-                                  subtitle: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Rp. 1.350.000",
-                                        style: textTheme.bodySmall!.copyWith(
-                                          fontSize: 10.sp,
-                                          color: Colors.grey,
-                                          decoration:
-                                              TextDecoration.lineThrough,
-                                        ),
-                                      ), //Initial price
-                                      Text(
-                                        "Rp. 350.000",
-                                        overflow: TextOverflow.ellipsis,
-                                        style: textTheme.bodyLarge!.copyWith(
-                                            color: Colors.indigo, height: 1.h),
-                                      ), //Discount price
-                                      const PaketRating(ratingCount: "4.9"),
-                                    ],
-                                  ),
-                                  ribbon:
-                                      const CardsRibbon(text: "Best Seller"),
-                                  badge: const CardsBadge(text: "Detail"),
-                                ),
-                              ],
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          height: 9.h,
-                        ),
-                        SizedBox(
-                          width: 320.w,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "UTalent",
-                                style: textTheme.displaySmall,
-                              ),
-                              Row(
-                                children: [
-                                  Text(
-                                    "Lihat semua",
-                                    style: textTheme.displaySmall!
-                                        .copyWith(color: Colors.indigo),
-                                  ),
-                                  const Icon(
-                                    Icons.chevron_right_outlined,
-                                    color: Colors.indigo,
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          height: 14.h,
-                        ),
-                        //UTalent paket list
-                        SizedBox(
-                          height: 120.h,
-                          child: ListView(
-                            shrinkWrap: true,
-                            padding: EdgeInsets.symmetric(horizontal: 20.w),
-                            scrollDirection: Axis.horizontal,
-                            children: [
-                              //dummy data generate
-                              for (int x = 0; x < 3; x++) ...[
-                                PaketCard(
-                                  height: 120.h,
-                                  width: 320.w,
-                                  margin: x < 2
-                                      ? EdgeInsets.only(right: 20.w)
-                                      : null,
-                                  borderRadius: 10.r,
-                                  contentMargin: EdgeInsets.symmetric(
-                                      horizontal: 10.sp, vertical: 10.sp),
-                                  leadingImage: Image.asset(
-                                    "assets/images/paket-leading-image.png",
-                                    fit: BoxFit.fill,
-                                    height: 100.sp,
-                                    width: 100.sp,
-                                  ),
-                                  leadingBorderRadius: 12.r,
-                                  title: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      const PaketChip(text: "Baca Tulis"),
-                                      FittedBox(
-                                        fit: BoxFit.scaleDown,
-                                        child: Text(
-                                          "Baca Tulis untuk TK",
-                                          overflow: TextOverflow.ellipsis,
-                                          style: textTheme.bodyLarge!
-                                              .copyWith(height: 1.3.h),
-                                        ),
-                                      ), //Paket title
-                                    ],
-                                  ),
-                                  subtitle: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Rp. 1.350.000",
-                                        style: textTheme.bodySmall!.copyWith(
-                                          fontSize: 10.sp,
-                                          color: Colors.grey,
-                                          decoration:
-                                              TextDecoration.lineThrough,
-                                        ),
-                                      ), //Initial price
-                                      Text(
-                                        "Rp. 350.000",
-                                        overflow: TextOverflow.ellipsis,
-                                        style: textTheme.bodyLarge!.copyWith(
-                                            color: Colors.indigo, height: 1.h),
-                                      ), //Discount price
-                                      const PaketRating(ratingCount: "4.9"),
-                                    ],
-                                  ),
-                                  ribbon:
-                                      const CardsRibbon(text: "Best Seller"),
-                                  badge: const CardsBadge(text: "Detail"),
-                                ),
-                              ],
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          height: 9.h,
-                        ),
-                        SizedBox(
-                          width: 320.w,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "UEducation",
-                                style: textTheme.displaySmall,
-                              ),
-                              Row(
-                                children: [
-                                  Text(
-                                    "Lihat semua",
-                                    style: textTheme.displaySmall!
-                                        .copyWith(color: Colors.indigo),
-                                  ),
-                                  const Icon(
-                                    Icons.chevron_right_outlined,
-                                    color: Colors.indigo,
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          height: 14.h,
-                        ),
-                        //codU paket list
-                        SizedBox(
-                          height: 120.h,
-                          child: ListView(
-                            shrinkWrap: true,
-                            padding: EdgeInsets.symmetric(horizontal: 20.w),
-                            scrollDirection: Axis.horizontal,
-                            children: [
-                              //dummy data generate
-                              for (int x = 0; x < 3; x++) ...[
-                                PaketCard(
-                                  height: 120.h,
-                                  width: 320.w,
-                                  margin: x < 2
-                                      ? EdgeInsets.only(right: 20.w)
-                                      : null,
-                                  borderRadius: 10.r,
-                                  contentMargin: EdgeInsets.symmetric(
-                                      horizontal: 10.sp, vertical: 10.sp),
-                                  leadingImage: Image.asset(
-                                    "assets/images/paket-leading-image.png",
-                                    fit: BoxFit.fill,
-                                    height: 100.sp,
-                                    width: 100.sp,
-                                  ),
-                                  leadingBorderRadius: 12.r,
-                                  title: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      const PaketChip(text: "Baca Tulis"),
-                                      FittedBox(
-                                        fit: BoxFit.scaleDown,
-                                        child: Text(
-                                          "Baca Tulis untuk TK",
-                                          overflow: TextOverflow.ellipsis,
-                                          style: textTheme.bodyLarge!
-                                              .copyWith(height: 1.3.h),
-                                        ),
-                                      ), //Paket title
-                                    ],
-                                  ),
-                                  subtitle: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Rp. 1.350.000",
-                                        style: textTheme.bodySmall!.copyWith(
-                                          fontSize: 10.sp,
-                                          color: Colors.grey,
-                                          decoration:
-                                              TextDecoration.lineThrough,
-                                        ),
-                                      ), //Initial price
-                                      Text(
-                                        "Rp. 350.000",
-                                        overflow: TextOverflow.ellipsis,
-                                        style: textTheme.bodyLarge!.copyWith(
-                                            color: Colors.indigo, height: 1.h),
-                                      ), //Discount price
-                                      const PaketRating(ratingCount: "4.9"),
-                                    ],
-                                  ),
-                                  ribbon:
-                                      const CardsRibbon(text: "Best Seller"),
-                                  badge: const CardsBadge(text: "Detail"),
-                                ),
-                              ],
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      body: SafeArea(
+        top: false,
+        child: PageView(
+            controller: _pageController,
+            onPageChanged: (value) {
+              setState(() {
+                _pageIndex = value;
+              });
+            },
+            children: const [
+              HomeView(),
+              MyClassView(),
+              LiveClassView(),
+              TransactionView(),
+              AccountView(),
+            ]),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _pageIndex,
+        onTap: (value) {
+          _pageController.animateToPage(
+            value,
+            duration: const Duration(milliseconds: 500),
+            curve: Curves.ease,
+          );
+        },
+        type: BottomNavigationBarType.fixed,
+        iconSize: 32.sp,
+        unselectedLabelStyle: Theme.of(context).textTheme.bodySmall!.copyWith(
+              fontWeight: FontWeight.w300,
             ),
-          ),
-        ),
+        unselectedFontSize: 9.sp,
+        unselectedItemColor: Colors.indigo.shade200,
+        showUnselectedLabels: true,
+        selectedLabelStyle: Theme.of(context).textTheme.bodyMedium,
+        selectedFontSize: 9.sp,
+        selectedItemColor: Colors.indigo,
+        items: const [
+          BottomNavigationBarItem(
+              icon: Icon(
+                LineIcons.home,
+              ),
+              label: "Home"),
+          BottomNavigationBarItem(
+              icon: Icon(
+                LineIcons.bookOpen,
+              ),
+              label: "Kelas Saya"),
+          BottomNavigationBarItem(
+              icon: Icon(
+                LineIcons.television,
+              ),
+              label: "Live Class"),
+          BottomNavigationBarItem(
+              icon: Icon(
+                LineIcons.fileInvoice,
+              ),
+              label: "Transaksi"),
+          BottomNavigationBarItem(
+              icon: Icon(
+                LineIcons.user,
+              ),
+              label: "Akun"),
+        ],
       ),
     );
   }

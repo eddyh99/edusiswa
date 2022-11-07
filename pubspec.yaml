@@ -40,6 +40,7 @@ dependencies:
   flutter_screenutil: ^5.6.0
   line_icons: ^2.0.1
   banner_carousel: ^1.2.1
+  expandable: ^5.0.1
   
 
 dev_dependencies:

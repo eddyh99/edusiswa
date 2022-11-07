@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:ulife/views/dashboard/edukasi_detail_view.dart';
 import 'package:ulife/views/dashboard/main.dart';
+import 'package:ulife/views/dashboard/paket_detail_view.dart';
+import 'package:ulife/views/dashboard/paket_kategori_view.dart';
 import 'package:ulife/views/login_view.dart';
 import 'package:ulife/views/signup_view.dart';
 import 'package:ulife/views/splashscreen.dart';
@@ -285,6 +288,21 @@ class UlifeApp extends StatelessWidget {
             GetPage(
               name: '/dashboard/',
               page: () => const DashboardMain(),
+            ),
+            GetPage(
+              name: '/dashboard/paket-kategori',
+              page: () => const PaketKategoriView(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: '/dashboard/edukasi-detail',
+              page: () => const EdukasiDetailView(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: '/dashboard/paket-detail',
+              page: () => const PaketDetailView(),
+              transition: Transition.rightToLeft,
             ),
           ],
         );

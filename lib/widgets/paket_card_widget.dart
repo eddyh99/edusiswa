@@ -72,7 +72,7 @@ class PaketCard extends StatelessWidget {
             ),
             Positioned(
               right: -20.w,
-              top: 20.h,
+              top: 15.h,
               child: ribbon,
             ),
             Positioned(

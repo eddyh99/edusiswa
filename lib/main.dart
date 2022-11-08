@@ -100,11 +100,19 @@ class UlifeApp extends StatelessWidget {
             elevatedButtonTheme: ElevatedButtonThemeData(
               style: ElevatedButton.styleFrom(
                 elevation: 1.0,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(5.r)),
                 ),
                 backgroundColor: Colors.indigo,
                 foregroundColor: Colors.white,
+              ),
+            ),
+            outlinedButtonTheme: OutlinedButtonThemeData(
+              style: OutlinedButton.styleFrom(
+                side: BorderSide(
+                  width: 1.w,
+                  color: Colors.indigo,
+                ),
               ),
             ),
             inputDecorationTheme: InputDecorationTheme(
@@ -121,35 +129,35 @@ class UlifeApp extends StatelessWidget {
                   .copyWith(color: Colors.grey.shade300),
               border: const OutlineInputBorder(),
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(5.0),
+                borderRadius: BorderRadius.circular(5.r),
                 borderSide: BorderSide(
                   width: 1.5,
                   color: Colors.grey.shade300,
                 ),
               ),
               focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(5.0),
+                borderRadius: BorderRadius.circular(5.r),
                 borderSide: const BorderSide(
                   width: 1.5,
                   color: Colors.indigo,
                 ),
               ),
               errorBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(5.0),
+                borderRadius: BorderRadius.circular(5.r),
                 borderSide: const BorderSide(
                   width: 1.5,
                   color: Colors.red,
                 ),
               ),
               focusedErrorBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(5.0),
+                borderRadius: BorderRadius.circular(5.r),
                 borderSide: const BorderSide(
                   width: 1.5,
                   color: Colors.red,
                 ),
               ),
               disabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(5.0),
+                borderRadius: BorderRadius.circular(5.r),
                 borderSide: BorderSide(
                   width: 1.5,
                   color: Colors.grey.shade300,
@@ -213,11 +221,19 @@ class UlifeApp extends StatelessWidget {
             elevatedButtonTheme: ElevatedButtonThemeData(
               style: ElevatedButton.styleFrom(
                 elevation: 1.0,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(5.r)),
                 ),
                 backgroundColor: Colors.indigo,
                 foregroundColor: Colors.white,
+              ),
+            ),
+            outlinedButtonTheme: OutlinedButtonThemeData(
+              style: OutlinedButton.styleFrom(
+                side: BorderSide(
+                  width: 1.w,
+                  color: Colors.indigo,
+                ),
               ),
             ),
             inputDecorationTheme: InputDecorationTheme(
@@ -234,35 +250,35 @@ class UlifeApp extends StatelessWidget {
                   .copyWith(color: Colors.grey.shade700),
               border: const OutlineInputBorder(),
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(5.0),
+                borderRadius: BorderRadius.circular(5.r),
                 borderSide: BorderSide(
                   width: 1.5,
                   color: Colors.grey.shade700,
                 ),
               ),
               focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(5.0),
+                borderRadius: BorderRadius.circular(5.r),
                 borderSide: const BorderSide(
                   width: 1.5,
                   color: Colors.indigo,
                 ),
               ),
               errorBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(5.0),
+                borderRadius: BorderRadius.circular(5.r),
                 borderSide: const BorderSide(
                   width: 1.5,
                   color: Colors.red,
                 ),
               ),
               focusedErrorBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(5.0),
+                borderRadius: BorderRadius.circular(5.r),
                 borderSide: const BorderSide(
                   width: 1.5,
                   color: Colors.red,
                 ),
               ),
               disabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(5.0),
+                borderRadius: BorderRadius.circular(5.r),
                 borderSide: BorderSide(
                   width: 1.5,
                   color: Colors.grey.shade700,

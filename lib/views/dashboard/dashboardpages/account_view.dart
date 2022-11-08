@@ -12,6 +12,6 @@ class AccountView extends StatefulWidget {
 class _AccountViewState extends State<AccountView> {
   @override
   Widget build(BuildContext context) {
-    return Center();
+    return const Center();
   }
 }

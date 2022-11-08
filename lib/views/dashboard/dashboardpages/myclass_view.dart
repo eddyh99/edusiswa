@@ -12,6 +12,6 @@ class MyClassView extends StatefulWidget {
 class _MyClassViewState extends State<MyClassView> {
   @override
   Widget build(BuildContext context) {
-    return Center();
+    return const Center();
   }
 }

@@ -12,6 +12,6 @@ class LiveClassView extends StatefulWidget {
 class _LiveClassViewState extends State<LiveClassView> {
   @override
   Widget build(BuildContext context) {
-    return Center();
+    return const Center();
   }
 }

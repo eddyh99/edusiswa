@@ -41,6 +41,7 @@ dependencies:
   line_icons: ^2.0.1
   banner_carousel: ^1.2.1
   expandable: ^5.0.1
+  cached_network_image: ^3.2.2
   
 
 dev_dependencies:

@@ -12,6 +12,6 @@ class TransactionView extends StatefulWidget {
 class _TransactionViewState extends State<TransactionView> {
   @override
   Widget build(BuildContext context) {
-    return Center();
+    return const Center();
   }
 }

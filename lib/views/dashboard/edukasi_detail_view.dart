@@ -164,7 +164,7 @@ class _EdukasiDetailViewState extends State<EdukasiDetailView> {
                                             ]
                                           : [
                                               Text(
-                                                "Lebih Sedikit",
+                                                "Lebih sedikit",
                                                 style: textTheme.titleLarge,
                                               ),
                                               SizedBox(

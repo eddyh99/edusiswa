@@ -111,11 +111,13 @@ class _PaketDetailViewState extends State<PaketDetailView> {
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  IconsNotificationBadge(
-                                    counter: "12",
-                                    counterSize: 9.sp,
-                                    child: GestureDetector(
-                                      onTap: () {},
+                                  GestureDetector(
+                                    onTap: () {
+                                      Get.toNamed("/dashboard/keranjang");
+                                    },
+                                    child: IconsNotificationBadge(
+                                      counter: "12",
+                                      counterSize: 9.sp,
                                       child: Icon(
                                         LineIcons.shoppingCart,
                                         size: 32.sp,
@@ -201,7 +203,6 @@ class _PaketDetailViewState extends State<PaketDetailView> {
                             ],
                           ),
                         ),
-                        SizedBox(height: 8.h),
                         SizedBox(
                           width: 320.w,
                           child: Text(

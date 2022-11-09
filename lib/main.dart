@@ -3,9 +3,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:ulife/views/dashboard/edukasi_detail_view.dart';
+import 'package:ulife/views/dashboard/keranjang_view.dart';
 import 'package:ulife/views/dashboard/main.dart';
+import 'package:ulife/views/dashboard/metode_pembayaran_view.dart';
 import 'package:ulife/views/dashboard/paket_detail_view.dart';
 import 'package:ulife/views/dashboard/paket_kategori_view.dart';
+import 'package:ulife/views/dashboard/pembayaran_detail_view.dart';
 import 'package:ulife/views/login_view.dart';
 import 'package:ulife/views/signup_view.dart';
 import 'package:ulife/views/splashscreen.dart';
@@ -96,6 +99,11 @@ class UlifeApp extends StatelessWidget {
               cursorColor: Colors.indigo,
               selectionColor: Colors.indigo.shade200,
               selectionHandleColor: Colors.indigo,
+            ),
+            checkboxTheme: CheckboxThemeData(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(3.r)),
+              ),
             ),
             elevatedButtonTheme: ElevatedButtonThemeData(
               style: ElevatedButton.styleFrom(
@@ -218,6 +226,11 @@ class UlifeApp extends StatelessWidget {
               selectionColor: Colors.indigo.shade200,
               selectionHandleColor: Colors.indigo,
             ),
+            checkboxTheme: CheckboxThemeData(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(3.r)),
+              ),
+            ),
             elevatedButtonTheme: ElevatedButtonThemeData(
               style: ElevatedButton.styleFrom(
                 elevation: 1.0,
@@ -296,14 +309,31 @@ class UlifeApp extends StatelessWidget {
             GetPage(
               name: '/signup',
               page: () => const SignUpView(),
+              transition: Transition.downToUp,
             ),
             GetPage(
-              name: '/login',
-              page: () => const LoginView(),
-            ),
+                name: '/login',
+                page: () => const LoginView(),
+                transition: Transition.downToUp),
             GetPage(
               name: '/dashboard/',
               page: () => const DashboardMain(),
+              transition: Transition.zoom,
+            ),
+            GetPage(
+              name: '/dashboard/keranjang',
+              page: () => const KeranjangView(),
+              transition: Transition.upToDown,
+            ),
+            GetPage(
+              name: '/dashboard/detail-pembayaran',
+              page: () => const PembayaranDetailView(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: '/dashboard/metode-pembayaran',
+              page: () => const MetodePembayaranView(),
+              transition: Transition.rightToLeft,
             ),
             GetPage(
               name: '/dashboard/paket-kategori',

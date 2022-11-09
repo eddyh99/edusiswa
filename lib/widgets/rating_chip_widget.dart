@@ -10,6 +10,7 @@ class RatingChip extends StatelessWidget {
     this.foregroundColor,
     this.backgroundColor = Colors.indigo,
     this.isOutlined = true,
+    this.onTap,
   });
 
   final String textRating;
@@ -18,44 +19,50 @@ class RatingChip extends StatelessWidget {
   final Color? foregroundColor;
   final Color? backgroundColor;
   final bool? isOutlined;
+  final VoidCallback? onTap;
   @override
   Widget build(BuildContext context) {
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(
-          Radius.circular(30.r),
-        ),
-        color: backgroundColor,
-      ),
-      child: Container(
-        margin: EdgeInsets.all(1.sp),
-        padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 1.h),
+    return GestureDetector(
+      onTap: onTap,
+      child: DecoratedBox(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(
             Radius.circular(30.r),
           ),
-          color: isOutlined == true
-              ? Theme.of(context).scaffoldBackgroundColor
-              : backgroundColor,
+          color: backgroundColor,
         ),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Icon(
-              Icons.star,
-              color: foregroundColor ??
-                  (isOutlined == true ? Colors.indigo : Colors.white),
-              size: iconSize ?? 18.sp,
+        child: Container(
+          margin: EdgeInsets.all(1.sp),
+          padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 1.h),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(
+              Radius.circular(30.r),
             ),
-            Text(
-              textRating,
-              style: textStyle ??
-                  Theme.of(context).textTheme.titleMedium!.copyWith(
-                        color: foregroundColor ??
-                            (isOutlined == true ? Colors.indigo : Colors.white),
-                      ),
-            ),
-          ],
+            color: isOutlined == true
+                ? Theme.of(context).scaffoldBackgroundColor
+                : backgroundColor,
+          ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Icon(
+                Icons.star,
+                color: foregroundColor ??
+                    (isOutlined == true ? Colors.indigo : Colors.white),
+                size: iconSize ?? 18.sp,
+              ),
+              Text(
+                textRating,
+                style: textStyle ??
+                    Theme.of(context).textTheme.titleMedium!.copyWith(
+                          color: foregroundColor ??
+                              (isOutlined == true
+                                  ? Colors.indigo
+                                  : Colors.white),
+                        ),
+              ),
+            ],
+          ),
         ),
       ),
     );

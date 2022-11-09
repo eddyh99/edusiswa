@@ -74,11 +74,13 @@ class _HomeViewState extends State<HomeView> {
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          IconsNotificationBadge(
-                            counter: "12",
-                            counterSize: 9.sp,
-                            child: GestureDetector(
-                              onTap: () {},
+                          GestureDetector(
+                            onTap: () {
+                              Get.toNamed("/dashboard/keranjang");
+                            },
+                            child: IconsNotificationBadge(
+                              counter: "12",
+                              counterSize: 9.sp,
                               child: LineIcon.shoppingCart(
                                 size: 32.sp,
                                 color: Colors.white,
@@ -88,11 +90,11 @@ class _HomeViewState extends State<HomeView> {
                           SizedBox(
                             width: 12.75.w,
                           ),
-                          IconsNotificationBadge(
-                            counter: "34",
-                            counterSize: 9.sp,
-                            child: GestureDetector(
-                              onTap: () {},
+                          GestureDetector(
+                            onTap: () {},
+                            child: IconsNotificationBadge(
+                              counter: "34",
+                              counterSize: 9.sp,
                               child: LineIcon.envelope(
                                 size: 32.sp,
                                 color: Colors.white,
@@ -102,11 +104,11 @@ class _HomeViewState extends State<HomeView> {
                           SizedBox(
                             width: 12.75.w,
                           ),
-                          IconsNotificationBadge(
-                            counter: "7",
-                            counterSize: 9.sp,
-                            child: GestureDetector(
-                              onTap: () {},
+                          GestureDetector(
+                            onTap: () {},
+                            child: IconsNotificationBadge(
+                              counter: "7",
+                              counterSize: 9.sp,
                               child: LineIcon.bell(
                                 size: 32.sp,
                                 color: Colors.white,

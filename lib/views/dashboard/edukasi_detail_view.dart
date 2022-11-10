@@ -2,6 +2,7 @@ import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:ulife/utils/extensions.dart';
 import 'package:ulife/widgets/cards_detailbadge_widget.dart';
 import 'package:ulife/widgets/cards_ribbon_widget.dart';
 import 'package:ulife/widgets/edukasidetail_text_widget.dart';
@@ -19,8 +20,7 @@ class EdukasiDetailView extends StatefulWidget {
 }
 
 class _EdukasiDetailViewState extends State<EdukasiDetailView> {
-  final String _edukasiName = Get.arguments["edukasi"];
-  final String _logoUrl = Get.arguments["logo"];
+  final UEducation _edukasi = Get.arguments["edukasi"];
 
   final ExpandableController _expandableController =
       ExpandableController(initialExpanded: false);
@@ -95,14 +95,14 @@ class _EdukasiDetailViewState extends State<EdukasiDetailView> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                _edukasiName,
+                                _edukasi.title,
                                 style: textTheme.displayLarge,
                               ),
                               SizedBox(
                                 height: 80.sp,
                                 width: 80.sp,
                                 child: Image.asset(
-                                  _logoUrl,
+                                  _edukasi.logoPath,
                                   fit: BoxFit.fitHeight,
                                 ),
                               )
@@ -210,7 +210,7 @@ class _EdukasiDetailViewState extends State<EdukasiDetailView> {
                                       horizontal: 10.sp, vertical: 10.sp),
                                   leadingImage: Image.asset(
                                     "assets/images/paket-leading-image.png",
-                                    fit: BoxFit.fill,
+                                    fit: BoxFit.cover,
                                     height: 100.sp,
                                     width: 100.sp,
                                   ),

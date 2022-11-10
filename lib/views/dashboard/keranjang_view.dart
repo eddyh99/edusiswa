@@ -104,7 +104,7 @@ class _KeranjangViewState extends State<KeranjangView> {
                           onCheckboxChanged: (value) {},
                           leading: Image.asset(
                             "assets/images/paket-leading-image.png",
-                            fit: BoxFit.fill,
+                            fit: BoxFit.cover,
                             height: 75.sp,
                             width: 75.sp,
                           ),

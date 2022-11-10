@@ -54,10 +54,9 @@ class _HomeViewState extends State<HomeView> {
                       horizontalTitleGap: 9.w,
                       minVerticalPadding: 2.h,
                       leading: CircleAvatar(
-                        backgroundImage: CachedNetworkImageProvider(
+                        radius: 25.r,
+                        backgroundImage: const CachedNetworkImageProvider(
                           "https://placeimg.com/50/50/people",
-                          maxHeight: 50.h.toInt(),
-                          maxWidth: 50.w.toInt(),
                         ),
                       ),
                       title: Text(

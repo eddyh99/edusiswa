@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:ulife/utils/extensions.dart';
 import 'package:ulife/widgets/cards_detailbadge_widget.dart';
 import 'package:ulife/widgets/paket_card_widget.dart';
 
@@ -115,8 +116,7 @@ class _PaketKategoriViewState extends State<PaketKategoriView> {
                           onTap: () {
                             Get.toNamed("/dashboard/edukasi-detail",
                                 arguments: {
-                                  "edukasi": "Edukios",
-                                  "logo": "assets/images/logo-edukios.png"
+                                  "edukasi": UEducation.edukios,
                                 });
                           },
                           child: PaketCard(
@@ -126,7 +126,7 @@ class _PaketKategoriViewState extends State<PaketKategoriView> {
                             contentMargin: EdgeInsets.symmetric(
                                 horizontal: 15.sp, vertical: 15.sp),
                             leadingImage: Image.asset(
-                              "assets/images/logo-edukios.png",
+                              UEducation.edukios.logoPath,
                               fit: BoxFit.fill,
                               height: 65.sp,
                               width: 65.sp,
@@ -134,7 +134,7 @@ class _PaketKategoriViewState extends State<PaketKategoriView> {
                             title: FittedBox(
                               fit: BoxFit.scaleDown,
                               child: Text(
-                                "Edukios",
+                                UEducation.edukios.title,
                                 overflow: TextOverflow.ellipsis,
                                 style: textTheme.displaySmall,
                               ),
@@ -155,8 +155,7 @@ class _PaketKategoriViewState extends State<PaketKategoriView> {
                           onTap: () {
                             Get.toNamed("/dashboard/edukasi-detail",
                                 arguments: {
-                                  "edukasi": "Edukidz",
-                                  "logo": "assets/images/logo-edukidz.png"
+                                  "edukasi": UEducation.edukidz,
                                 });
                           },
                           child: PaketCard(
@@ -166,7 +165,7 @@ class _PaketKategoriViewState extends State<PaketKategoriView> {
                             contentMargin: EdgeInsets.symmetric(
                                 horizontal: 15.sp, vertical: 15.sp),
                             leadingImage: Image.asset(
-                              "assets/images/logo-edukidz.png",
+                              UEducation.edukidz.logoPath,
                               fit: BoxFit.fill,
                               height: 65.sp,
                               width: 65.sp,
@@ -174,7 +173,7 @@ class _PaketKategoriViewState extends State<PaketKategoriView> {
                             title: FittedBox(
                               fit: BoxFit.scaleDown,
                               child: Text(
-                                "Edukidz",
+                                UEducation.edukidz.title,
                                 overflow: TextOverflow.ellipsis,
                                 style: textTheme.displaySmall,
                               ),
@@ -195,8 +194,7 @@ class _PaketKategoriViewState extends State<PaketKategoriView> {
                           onTap: () {
                             Get.toNamed("/dashboard/edukasi-detail",
                                 arguments: {
-                                  "edukasi": "Speakizy",
-                                  "logo": "assets/images/logo-speakizy.png"
+                                  "edukasi": UEducation.speakizy,
                                 });
                           },
                           child: PaketCard(
@@ -206,7 +204,7 @@ class _PaketKategoriViewState extends State<PaketKategoriView> {
                             contentMargin: EdgeInsets.symmetric(
                                 horizontal: 15.sp, vertical: 15.sp),
                             leadingImage: Image.asset(
-                              "assets/images/logo-speakizy.png",
+                              UEducation.speakizy.logoPath,
                               fit: BoxFit.fill,
                               height: 65.sp,
                               width: 65.sp,
@@ -214,7 +212,7 @@ class _PaketKategoriViewState extends State<PaketKategoriView> {
                             title: FittedBox(
                               fit: BoxFit.scaleDown,
                               child: Text(
-                                "Speakizy",
+                                UEducation.speakizy.title,
                                 overflow: TextOverflow.ellipsis,
                                 style: textTheme.displaySmall,
                               ),
@@ -234,10 +232,7 @@ class _PaketKategoriViewState extends State<PaketKategoriView> {
                         GestureDetector(
                           onTap: () {
                             Get.toNamed("/dashboard/edukasi-detail",
-                                arguments: {
-                                  "edukasi": "Creativo",
-                                  "logo": "assets/images/logo-creativo.png"
-                                });
+                                arguments: {"edukasi": UEducation.creativo});
                           },
                           child: PaketCard(
                             height: 120.h,
@@ -246,7 +241,7 @@ class _PaketKategoriViewState extends State<PaketKategoriView> {
                             contentMargin: EdgeInsets.symmetric(
                                 horizontal: 15.sp, vertical: 15.sp),
                             leadingImage: Image.asset(
-                              "assets/images/logo-creativo.png",
+                              UEducation.creativo.logoPath,
                               fit: BoxFit.fill,
                               height: 65.sp,
                               width: 65.sp,
@@ -254,7 +249,7 @@ class _PaketKategoriViewState extends State<PaketKategoriView> {
                             title: FittedBox(
                               fit: BoxFit.scaleDown,
                               child: Text(
-                                "Creativo",
+                                UEducation.creativo.title,
                                 overflow: TextOverflow.ellipsis,
                                 style: textTheme.displaySmall,
                               ),
@@ -275,9 +270,7 @@ class _PaketKategoriViewState extends State<PaketKategoriView> {
                           onTap: () {
                             Get.toNamed("/dashboard/edukasi-detail",
                                 arguments: {
-                                  "edukasi": "Private by Creativo",
-                                  "logo":
-                                      "assets/images/logo-private-creativo.png"
+                                  "edukasi": UEducation.privatecreativo,
                                 });
                           },
                           child: PaketCard(
@@ -287,7 +280,7 @@ class _PaketKategoriViewState extends State<PaketKategoriView> {
                             contentMargin: EdgeInsets.symmetric(
                                 horizontal: 15.sp, vertical: 15.sp),
                             leadingImage: Image.asset(
-                              "assets/images/logo-private-creativo.png",
+                              UEducation.privatecreativo.logoPath,
                               fit: BoxFit.fill,
                               height: 65.sp,
                               width: 65.sp,
@@ -295,7 +288,7 @@ class _PaketKategoriViewState extends State<PaketKategoriView> {
                             title: FittedBox(
                               fit: BoxFit.scaleDown,
                               child: Text(
-                                "Private by Creativo",
+                                UEducation.creativo.title,
                                 overflow: TextOverflow.ellipsis,
                                 style: textTheme.displaySmall,
                               ),
@@ -316,8 +309,7 @@ class _PaketKategoriViewState extends State<PaketKategoriView> {
                           onTap: () {
                             Get.toNamed("/dashboard/edukasi-detail",
                                 arguments: {
-                                  "edukasi": "Shiyong",
-                                  "logo": "assets/images/logo-shiyong.png"
+                                  "edukasi": UEducation.shiyong,
                                 });
                           },
                           child: PaketCard(
@@ -327,7 +319,7 @@ class _PaketKategoriViewState extends State<PaketKategoriView> {
                             contentMargin: EdgeInsets.symmetric(
                                 horizontal: 15.sp, vertical: 15.sp),
                             leadingImage: Image.asset(
-                              "assets/images/logo-shiyong.png",
+                              UEducation.shiyong.logoPath,
                               fit: BoxFit.fill,
                               height: 65.sp,
                               width: 65.sp,
@@ -335,7 +327,7 @@ class _PaketKategoriViewState extends State<PaketKategoriView> {
                             title: FittedBox(
                               fit: BoxFit.scaleDown,
                               child: Text(
-                                "Shiyong",
+                                UEducation.shiyong.logoPath,
                                 overflow: TextOverflow.ellipsis,
                                 style: textTheme.displaySmall,
                               ),

@@ -13,6 +13,10 @@ import 'package:ulife/views/login_view.dart';
 import 'package:ulife/views/signup_view.dart';
 import 'package:ulife/views/splashscreen.dart';
 
+import 'views/dashboard/dashboardpages/accountsubviews/ubah_passwordbaru_view.dart';
+import 'views/dashboard/dashboardpages/accountsubviews/ubah_passwordlama_view.dart';
+import 'views/dashboard/dashboardpages/accountsubviews/ubah_profil_view.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SystemChrome.setPreferredOrientations([
@@ -320,6 +324,23 @@ class UlifeApp extends StatelessWidget {
               page: () => const DashboardMain(),
               transition: Transition.zoom,
             ),
+            /* Akun sub views [start] */
+            GetPage(
+              name: '/dashboard/account/ubah-profil',
+              page: () => const UbahProfilView(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: '/dashboard/account/ubah-password/lama',
+              page: () => const UbahPasswordLamaView(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: '/dashboard/account/ubah-password/baru',
+              page: () => const UbahPasswordBaruView(),
+              transition: Transition.rightToLeft,
+            ),
+            /* Akun sub views [end] */
             GetPage(
               name: '/dashboard/keranjang',
               page: () => const KeranjangView(),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:ulife/utils/extensions.dart';
 import 'package:ulife/widgets/textformfield_toplabeled_widget.dart';
 
 class LoginView extends StatefulWidget {
@@ -203,7 +204,8 @@ class _LoginViewState extends State<LoginView> {
                         child: ElevatedButton(
                           onPressed: () {
                             if (_loginFormKey.currentState!.validate()) {
-                              Get.offAllNamed("/dashboard/");
+                              Get.offAllNamed("/dashboard/",
+                                  arguments: {"page": DashboardPages.home});
                             }
                           },
                           child: const Text("Masuk"),

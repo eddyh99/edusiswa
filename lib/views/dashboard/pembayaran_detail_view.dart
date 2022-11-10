@@ -114,7 +114,7 @@ class _PembayaranDetailViewState extends State<PembayaranDetailView> {
                                 ),
                                 child: Image.asset(
                                   "assets/images/paket-leading-image.png",
-                                  fit: BoxFit.fill,
+                                  fit: BoxFit.cover,
                                   height: 75.sp,
                                   width: 75.sp,
                                 ),

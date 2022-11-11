@@ -114,10 +114,7 @@ class _PaketKategoriViewState extends State<PaketKategoriView> {
                         ),
                         GestureDetector(
                           onTap: () {
-                            Get.toNamed("/dashboard/edukasi-detail",
-                                arguments: {
-                                  "edukasi": UEducation.edukios,
-                                });
+                            Get.toNamed("/dashboard/edukios/");
                           },
                           child: PaketCard(
                             height: 120.h,

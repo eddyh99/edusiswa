@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:ulife/views/dashboard/edukasi_detail_view.dart';
+import 'package:ulife/views/dashboard/edukios/main.dart';
 import 'package:ulife/views/dashboard/keranjang_view.dart';
 import 'package:ulife/views/dashboard/main.dart';
 import 'package:ulife/views/dashboard/metode_pembayaran_view.dart';
@@ -371,6 +372,13 @@ class UlifeApp extends StatelessWidget {
               page: () => const PaketDetailView(),
               transition: Transition.rightToLeft,
             ),
+            /* Edukios views [start] */
+            GetPage(
+              name: '/dashboard/edukios/',
+              page: () => const EdukiosMain(),
+              transition: Transition.rightToLeft,
+            ),
+            /* Edukios views [end] */
           ],
         );
       },

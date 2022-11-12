@@ -1,3 +1,4 @@
+import 'package:banner_carousel/banner_carousel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -129,21 +130,27 @@ class _EdukiosMainState extends State<EdukiosMain> {
                             fit: BoxFit.cover,
                           ),
                         ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                        child: Stack(
+                          alignment: AlignmentDirectional.center,
                           children: [
-                            SizedBox(
-                              height: 70.h,
-                              child: Image.asset(
-                                "assets/images/konsultasi-illustration.png",
-                                fit: BoxFit.fitHeight,
+                            Positioned(
+                              top: 40.h,
+                              child: SizedBox(
+                                height: 90.h,
+                                child: Image.asset(
+                                  "assets/images/konsultasi-illustration.png",
+                                  fit: BoxFit.fitHeight,
+                                ),
                               ),
                             ),
-                            Text(
-                              "Konsultasi",
-                              style: textTheme.displayMedium!
-                                  .copyWith(color: Colors.white),
-                            )
+                            Positioned(
+                              bottom: 20.h,
+                              child: Text(
+                                "Konsutasi",
+                                style: textTheme.displayMedium!
+                                    .copyWith(color: Colors.white),
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -157,21 +164,27 @@ class _EdukiosMainState extends State<EdukiosMain> {
                             fit: BoxFit.cover,
                           ),
                         ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                        child: Stack(
+                          alignment: AlignmentDirectional.center,
                           children: [
-                            SizedBox(
-                              height: 70.h,
-                              child: Image.asset(
-                                "assets/images/ajariteman-illustration.png",
-                                fit: BoxFit.fitHeight,
+                            Positioned(
+                              top: 20.h,
+                              child: SizedBox(
+                                height: 120.h,
+                                child: Image.asset(
+                                  "assets/images/ajariteman-illustration.png",
+                                  fit: BoxFit.fitHeight,
+                                ),
                               ),
                             ),
-                            Text(
-                              "Ajari Teman",
-                              style: textTheme.displayMedium!
-                                  .copyWith(color: Colors.white),
-                            )
+                            Positioned(
+                              bottom: 20.h,
+                              child: Text(
+                                "Ajari Teman",
+                                style: textTheme.displayMedium!
+                                    .copyWith(color: Colors.white),
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -185,25 +198,105 @@ class _EdukiosMainState extends State<EdukiosMain> {
                             fit: BoxFit.cover,
                           ),
                         ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                        child: Stack(
+                          alignment: AlignmentDirectional.center,
                           children: [
-                            SizedBox(
-                              height: 70.h,
-                              child: Image.asset(
-                                "assets/images/paket-illustration.png",
-                                fit: BoxFit.fitHeight,
+                            Positioned(
+                              top: 60.h,
+                              child: SizedBox(
+                                height: 60.h,
+                                child: Image.asset(
+                                  "assets/images/paket-illustration.png",
+                                  fit: BoxFit.fitHeight,
+                                ),
                               ),
                             ),
-                            Text(
-                              "Paket Edukios",
-                              style: textTheme.displayMedium!
-                                  .copyWith(color: Colors.white),
-                            )
+                            Positioned(
+                              bottom: 20.h,
+                              child: Text(
+                                "Paket Edukios",
+                                style: textTheme.displayMedium!
+                                    .copyWith(color: Colors.white),
+                              ),
+                            ),
                           ],
                         ),
                       ),
                     ],
+                  ),
+                ),
+                Divider(
+                  thickness: 3.h,
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 14.h, bottom: 17.h),
+                  width: 320.w,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Promo",
+                        style: textTheme.displaySmall,
+                      ),
+                      GestureDetector(
+                        onTap: () {},
+                        child: Wrap(
+                          direction: Axis.horizontal,
+                          crossAxisAlignment: WrapCrossAlignment.center,
+                          children: [
+                            Text(
+                              "View more",
+                              style: textTheme.bodySmall!
+                                  .copyWith(color: Colors.grey),
+                            ),
+                            Icon(
+                              Icons.chevron_right,
+                              color: Colors.grey,
+                              size: 16.sp,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(bottom: 70.h),
+                  width: 320.w,
+                  child: BannerCarousel(
+                    margin: EdgeInsets.zero,
+                    customizedBanners: [
+                      Card(
+                        child: Image.asset(
+                          "assets/images/promo-banner-1.png",
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      Card(
+                        child: Image.asset(
+                          "assets/images/promo-banner-2.png",
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      Card(
+                        child: Image.asset(
+                          "assets/images/promo-banner-3.png",
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ],
+                    customizedIndicators: IndicatorModel.animation(
+                        width: 5.w,
+                        height: 5.h,
+                        spaceBetween: 4.w,
+                        widthAnimation: 27.w),
+                    activeColor: Colors.indigo,
+                    disableColor: Colors.grey,
+                    animation: true,
+                    borderRadius: 10.r,
+                    height: 120.h,
+                    width: 320.w,
+                    indicatorBottom: true,
                   ),
                 ),
               ],

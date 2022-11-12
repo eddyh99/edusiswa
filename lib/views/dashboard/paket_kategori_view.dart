@@ -324,7 +324,7 @@ class _PaketKategoriViewState extends State<PaketKategoriView> {
                             title: FittedBox(
                               fit: BoxFit.scaleDown,
                               child: Text(
-                                UEducation.shiyong.logoPath,
+                                UEducation.shiyong.title,
                                 overflow: TextOverflow.ellipsis,
                                 style: textTheme.displaySmall,
                               ),

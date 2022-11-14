@@ -120,108 +120,121 @@ class _EdukiosMainState extends State<EdukiosMain> {
                     mainAxisSpacing: 15.sp,
                     crossAxisSpacing: 15.sp,
                     children: [
-                      DecoratedBox(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.r),
-                          image: const DecorationImage(
-                            image: AssetImage(
-                              "assets/images/square-bg-teal.png",
+                      GestureDetector(
+                        onTap: () {
+                          Get.toNamed("/dashboard/edukios/konsultasi");
+                        },
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10.r),
+                            image: const DecorationImage(
+                              image: AssetImage(
+                                "assets/images/square-bg-teal.png",
+                              ),
+                              fit: BoxFit.cover,
                             ),
-                            fit: BoxFit.cover,
                           ),
-                        ),
-                        child: Stack(
-                          alignment: AlignmentDirectional.center,
-                          children: [
-                            Positioned(
-                              top: 40.h,
-                              child: SizedBox(
-                                height: 90.h,
-                                child: Image.asset(
-                                  "assets/images/konsultasi-illustration.png",
-                                  fit: BoxFit.fitHeight,
+                          child: Stack(
+                            alignment: AlignmentDirectional.center,
+                            children: [
+                              Positioned(
+                                top: 40.h,
+                                child: SizedBox(
+                                  height: 90.h,
+                                  child: Image.asset(
+                                    "assets/images/konsultasi-illustration.png",
+                                    fit: BoxFit.fitHeight,
+                                  ),
                                 ),
                               ),
-                            ),
-                            Positioned(
-                              bottom: 20.h,
-                              child: Text(
-                                "Konsutasi",
-                                style: textTheme.displayMedium!
-                                    .copyWith(color: Colors.white),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      DecoratedBox(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.r),
-                          image: const DecorationImage(
-                            image: AssetImage(
-                              "assets/images/square-bg-amber.png",
-                            ),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        child: Stack(
-                          alignment: AlignmentDirectional.center,
-                          children: [
-                            Positioned(
-                              top: 20.h,
-                              child: SizedBox(
-                                height: 120.h,
-                                child: Image.asset(
-                                  "assets/images/ajariteman-illustration.png",
-                                  fit: BoxFit.fitHeight,
+                              Positioned(
+                                bottom: 20.h,
+                                child: Text(
+                                  "Konsutasi",
+                                  style: textTheme.displayMedium!
+                                      .copyWith(color: Colors.white),
                                 ),
                               ),
-                            ),
-                            Positioned(
-                              bottom: 20.h,
-                              child: Text(
-                                "Ajari Teman",
-                                style: textTheme.displayMedium!
-                                    .copyWith(color: Colors.white),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      DecoratedBox(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.r),
-                          image: const DecorationImage(
-                            image: AssetImage(
-                              "assets/images/square-bg-indigo.png",
-                            ),
-                            fit: BoxFit.cover,
+                            ],
                           ),
                         ),
-                        child: Stack(
-                          alignment: AlignmentDirectional.center,
-                          children: [
-                            Positioned(
-                              top: 60.h,
-                              child: SizedBox(
-                                height: 60.h,
-                                child: Image.asset(
-                                  "assets/images/paket-illustration.png",
-                                  fit: BoxFit.fitHeight,
+                      ),
+                      GestureDetector(
+                        onTap: () {},
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10.r),
+                            image: const DecorationImage(
+                              image: AssetImage(
+                                "assets/images/square-bg-amber.png",
+                              ),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          child: Stack(
+                            alignment: AlignmentDirectional.center,
+                            children: [
+                              Positioned(
+                                top: 20.h,
+                                child: SizedBox(
+                                  height: 120.h,
+                                  child: Image.asset(
+                                    "assets/images/ajariteman-illustration.png",
+                                    fit: BoxFit.fitHeight,
+                                  ),
                                 ),
                               ),
-                            ),
-                            Positioned(
-                              bottom: 20.h,
-                              child: Text(
-                                "Paket Edukios",
-                                style: textTheme.displayMedium!
-                                    .copyWith(color: Colors.white),
+                              Positioned(
+                                bottom: 20.h,
+                                child: Text(
+                                  "Ajari Teman",
+                                  style: textTheme.displayMedium!
+                                      .copyWith(color: Colors.white),
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
+                      /*
+                      GestureDetector(
+                        onTap: () {},
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10.r),
+                            image: const DecorationImage(
+                              image: AssetImage(
+                                "assets/images/square-bg-indigo.png",
+                              ),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          child: Stack(
+                            alignment: AlignmentDirectional.center,
+                            children: [
+                              Positioned(
+                                top: 60.h,
+                                child: SizedBox(
+                                  height: 60.h,
+                                  child: Image.asset(
+                                    "assets/images/paket-illustration.png",
+                                    fit: BoxFit.fitHeight,
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                bottom: 20.h,
+                                child: Text(
+                                  "Paket Edukios",
+                                  style: textTheme.displayMedium!
+                                      .copyWith(color: Colors.white),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      */
                     ],
                   ),
                 ),
@@ -286,10 +299,11 @@ class _EdukiosMainState extends State<EdukiosMain> {
                       ),
                     ],
                     customizedIndicators: IndicatorModel.animation(
-                        width: 5.w,
-                        height: 5.h,
-                        spaceBetween: 4.w,
-                        widthAnimation: 27.w),
+                      width: 5.w,
+                      height: 5.h,
+                      spaceBetween: 4.w,
+                      widthAnimation: 27.w,
+                    ),
                     activeColor: Colors.indigo,
                     disableColor: Colors.grey,
                     animation: true,

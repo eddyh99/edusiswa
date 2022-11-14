@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:ulife/views/dashboard/edukasi_detail_view.dart';
+import 'package:ulife/views/dashboard/edukios/konsultasi_view.dart';
+import 'package:ulife/views/dashboard/edukios/konsutasi_offline_view.dart';
 import 'package:ulife/views/dashboard/edukios/main.dart';
 import 'package:ulife/views/dashboard/keranjang_view.dart';
 import 'package:ulife/views/dashboard/main.dart';
@@ -118,6 +120,8 @@ class UlifeApp extends StatelessWidget {
                 ),
                 backgroundColor: Colors.indigo,
                 foregroundColor: Colors.white,
+                disabledBackgroundColor: Colors.indigo.shade200,
+                disabledForegroundColor: Colors.white,
               ),
             ),
             outlinedButtonTheme: OutlinedButtonThemeData(
@@ -244,6 +248,8 @@ class UlifeApp extends StatelessWidget {
                 ),
                 backgroundColor: Colors.indigo,
                 foregroundColor: Colors.white,
+                disabledBackgroundColor: Colors.indigo.shade800,
+                disabledForegroundColor: Colors.white,
               ),
             ),
             outlinedButtonTheme: OutlinedButtonThemeData(
@@ -376,6 +382,16 @@ class UlifeApp extends StatelessWidget {
             GetPage(
               name: '/dashboard/edukios/',
               page: () => const EdukiosMain(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: '/dashboard/edukios/konsultasi',
+              page: () => const EdukiosKonsultasiView(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: '/dashboard/edukios/konsultasi/offline',
+              page: () => const EdukiosKonsultasiOfflineView(),
               transition: Transition.rightToLeft,
             ),
             /* Edukios views [end] */

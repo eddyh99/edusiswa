@@ -148,7 +148,7 @@ class _EdukiosMainState extends State<EdukiosMain> {
                                 ),
                               ),
                               Positioned(
-                                bottom: 20.h,
+                                bottom: 15.h,
                                 child: Text(
                                   "Konsutasi",
                                   style: textTheme.displayMedium!
@@ -185,7 +185,7 @@ class _EdukiosMainState extends State<EdukiosMain> {
                                 ),
                               ),
                               Positioned(
-                                bottom: 20.h,
+                                bottom: 15.h,
                                 child: Text(
                                   "Ajari Teman",
                                   style: textTheme.displayMedium!

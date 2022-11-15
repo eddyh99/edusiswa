@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:ulife/controllers/lokasi_controller.dart';
+import 'package:ulife/controllers/outlet_controller.dart';
 import 'package:ulife/views/dashboard/edukasi_detail_view.dart';
 import 'package:ulife/views/dashboard/edukios/konsultasi_view.dart';
-import 'package:ulife/views/dashboard/edukios/konsutasi_offline_view.dart';
+import 'package:ulife/views/dashboard/edukios/konsultasi_offline_view.dart';
 import 'package:ulife/views/dashboard/edukios/main.dart';
+import 'package:ulife/views/dashboard/edukios/profil_tutor_view.dart';
 import 'package:ulife/views/dashboard/keranjang_view.dart';
 import 'package:ulife/views/dashboard/main.dart';
 import 'package:ulife/views/dashboard/metode_pembayaran_view.dart';
@@ -394,6 +397,11 @@ class UlifeApp extends StatelessWidget {
               page: () => const EdukiosKonsultasiOfflineView(),
               transition: Transition.rightToLeft,
             ),
+            GetPage(
+              name: '/dashboard/edukios/konsultasi/tutor',
+              page: () => const EdukiosProfilTutorView(),
+              transition: Transition.rightToLeft,
+            ),
             /* Edukios views [end] */
           ],
         );
@@ -413,9 +421,15 @@ class _AppMainState extends State<AppMain> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
-      Future.delayed(const Duration(seconds: 3), () {
-        Get.offNamed("/signup");
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      LokasiController.initialize().then((isInitialized) {
+        if (isInitialized) {
+          OutletController.initialize();
+          Future.delayed(const Duration(seconds: 1), () {
+            Get.offNamed("/signup");
+          });
+        }
       });
     });
   }

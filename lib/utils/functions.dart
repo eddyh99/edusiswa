@@ -1,6 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ulife/controllers/lokasi_controller.dart';
+import 'package:ulife/controllers/outlet_controller.dart';
+import 'package:ulife/widgets/lokasi_fullscreen_widget.dart';
+import 'package:ulife/widgets/outlets_fullscreen_widget.dart';
 import 'package:ulife/widgets/outlinedtile_button_widget.dart';
 
 void printDebug(Object? object) {
@@ -48,7 +52,7 @@ Future<int?> showPilihKelasBottomSheet(
                         GestureDetector(
                           onTap: () {
                             setState(() {
-                              selectedKelas = x;
+                              selectedKelas = selectedKelas == x ? null : x;
                             });
                           },
                           child: UnconstrainedBox(
@@ -91,10 +95,18 @@ Future<int?> showPilihKelasBottomSheet(
                   height: 40.h,
                   width: 320.w,
                   child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pop(context, selectedKelas);
-                    },
-                    child: const Text("Pilih Kelas"),
+                    onPressed: selectedKelas != null
+                        ? () {
+                            Navigator.pop(context, selectedKelas);
+                          }
+                        : null,
+                    child: Text(
+                      "Pilih Kelas",
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium!
+                          .copyWith(color: Colors.white),
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -109,11 +121,15 @@ Future<int?> showPilihKelasBottomSheet(
   );
 }
 
-Future<String?> showLokasiBottomSheet(
+Future<Map<String, String>?> showLokasiBottomSheet(
     {required BuildContext context,
     required String lokasiType,
     String? currentLocationID}) async {
-  return await showModalBottomSheet<String>(
+  Map<String, String>? selectedProvinsi;
+  Map<String, String>? selectedKabupatenKota;
+  Map<String, String>? selectedKecamatan;
+  Map<String, String>? selectedOutlet;
+  return await showModalBottomSheet<Map<String, String>?>(
     isScrollControlled: true,
     context: context,
     shape: RoundedRectangleBorder(
@@ -155,10 +171,27 @@ Future<String?> showLokasiBottomSheet(
                             height: 45.h,
                             width: 320.w,
                             child: OutlinedTileButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          PilihLokasiFullScreen(
+                                              listLokasi:
+                                                  LokasiController.provinsi),
+                                    )).then((value) => setState(() {
+                                      selectedProvinsi = value;
+                                      selectedKabupatenKota = null;
+                                      selectedKecamatan = null;
+                                      selectedOutlet = null;
+                                    }));
+                              },
                               leading: Text(
-                                "Pilih Provinsi",
+                                selectedProvinsi == null
+                                    ? "Pilih Provinsi"
+                                    : selectedProvinsi!["nama"]!,
                                 style: Theme.of(context).textTheme.titleSmall,
+                                overflow: TextOverflow.ellipsis,
                               ),
                               trailing: const Icon(
                                 Icons.chevron_right,
@@ -186,10 +219,30 @@ Future<String?> showLokasiBottomSheet(
                             height: 45.h,
                             width: 320.w,
                             child: OutlinedTileButton(
-                              onPressed: () {},
+                              onPressed: selectedProvinsi != null
+                                  ? () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                PilihLokasiFullScreen(
+                                                    listLokasi: LokasiController
+                                                        .getKabupatenKotaByProvinsi(
+                                                            selectedProvinsi![
+                                                                "id"]!)),
+                                          )).then((value) => setState(() {
+                                            selectedKabupatenKota = value;
+                                            selectedKecamatan = null;
+                                            selectedOutlet = null;
+                                          }));
+                                    }
+                                  : null,
                               leading: Text(
-                                "Pilih Kabupaten / Kota",
+                                selectedKabupatenKota == null
+                                    ? "Pilih Kabupaten / Kota"
+                                    : selectedKabupatenKota!["nama"]!,
                                 style: Theme.of(context).textTheme.titleSmall,
+                                overflow: TextOverflow.ellipsis,
                               ),
                               trailing: const Icon(
                                 Icons.chevron_right,
@@ -217,10 +270,29 @@ Future<String?> showLokasiBottomSheet(
                             height: 45.h,
                             width: 320.w,
                             child: OutlinedTileButton(
-                              onPressed: () {},
+                              onPressed: selectedKabupatenKota != null
+                                  ? () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                PilihLokasiFullScreen(
+                                                    listLokasi: LokasiController
+                                                        .getKecamatanByKabupatenKota(
+                                                            selectedKabupatenKota![
+                                                                "id"]!)),
+                                          )).then((value) => setState(() {
+                                            selectedKecamatan = value;
+                                            selectedOutlet = null;
+                                          }));
+                                    }
+                                  : null,
                               leading: Text(
-                                "Pilih kecamatan",
+                                selectedKecamatan == null
+                                    ? "Pilih Kecamatan"
+                                    : selectedKecamatan!["nama"]!,
                                 style: Theme.of(context).textTheme.titleSmall,
+                                overflow: TextOverflow.ellipsis,
                               ),
                               trailing: const Icon(
                                 Icons.chevron_right,
@@ -248,10 +320,27 @@ Future<String?> showLokasiBottomSheet(
                             height: 45.h,
                             width: 320.w,
                             child: OutlinedTileButton(
-                              onPressed: () {},
+                              onPressed: selectedKecamatan != null
+                                  ? () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                PilihOutletsFullScreen(
+                                                    listOutlets:
+                                                        OutletController
+                                                            .outlets),
+                                          )).then((value) => setState(() {
+                                            selectedOutlet = value;
+                                          }));
+                                    }
+                                  : null,
                               leading: Text(
-                                "Pilih ${lokasiType[0].toUpperCase()}${lokasiType.substring(1)}",
+                                selectedOutlet != null
+                                    ? selectedOutlet!["nama"]!
+                                    : "Pilih ${lokasiType[0].toUpperCase()}${lokasiType.substring(1)}",
                                 style: Theme.of(context).textTheme.titleSmall,
+                                overflow: TextOverflow.ellipsis,
                               ),
                               trailing: const Icon(
                                 Icons.chevron_right,
@@ -268,12 +357,18 @@ Future<String?> showLokasiBottomSheet(
                   height: 40.h,
                   width: 320.w,
                   child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pop(
-                        context,
-                      );
-                    },
-                    child: const Text("Pilih Lokasi"),
+                    onPressed: selectedOutlet != null
+                        ? () {
+                            Navigator.pop(context, selectedOutlet);
+                          }
+                        : null,
+                    child: Text(
+                      "Pilih Lokasi",
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium!
+                          .copyWith(color: Colors.white),
+                    ),
                   ),
                 ),
                 SizedBox(

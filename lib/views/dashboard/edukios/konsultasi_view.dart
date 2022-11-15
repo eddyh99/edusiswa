@@ -336,7 +336,11 @@ class _EdukiosKonsultasiViewState extends State<EdukiosKonsultasiView> {
                                   borderRadius: BorderRadius.circular(30.r),
                                 ),
                               ),
-                              child: const Text("KONSULTASI SEKARANG"),
+                              child: Text(
+                                "KONSULTASI SEKARANG",
+                                style: textTheme.bodyMedium!
+                                    .copyWith(color: Colors.white),
+                              ),
                             ),
                           ),
                           SizedBox(

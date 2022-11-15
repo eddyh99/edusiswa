@@ -249,13 +249,15 @@ class _MetodePembayaranViewState extends State<MetodePembayaranView> {
                         minLeadingWidth: 0.0,
                         leading: CircleAvatar(
                           radius: 20.sp,
-                          backgroundImage: Image.asset(
-                            "assets/images/logo-dana.png",
-                            fit: BoxFit.cover,
-                          ).image,
+                          backgroundColor: Colors.lightBlue,
+                          child: Text(
+                            "VA",
+                            style: textTheme.titleLarge!
+                                .copyWith(color: Colors.white),
+                          ),
                         ),
                         title: Text(
-                          "VA BCA",
+                          "BCA",
                           style: textTheme.titleLarge,
                         ),
                         trailing: Radio<String>(
@@ -281,13 +283,15 @@ class _MetodePembayaranViewState extends State<MetodePembayaranView> {
                         minLeadingWidth: 0.0,
                         leading: CircleAvatar(
                           radius: 20.sp,
-                          backgroundImage: Image.asset(
-                            "assets/images/logo-ovo.png",
-                            fit: BoxFit.cover,
-                          ).image,
+                          backgroundColor: Colors.blue.shade900,
+                          child: Text(
+                            "VA",
+                            style: textTheme.titleLarge!
+                                .copyWith(color: Colors.white),
+                          ),
                         ),
                         title: Text(
-                          "VA Mandiri",
+                          "Mandiri",
                           style: textTheme.titleLarge,
                         ),
                         trailing: Radio<String>(

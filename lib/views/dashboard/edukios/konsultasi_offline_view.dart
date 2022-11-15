@@ -17,7 +17,7 @@ class EdukiosKonsultasiOfflineView extends StatefulWidget {
 
 class _EdukiosKonsultasiOfflineViewState
     extends State<EdukiosKonsultasiOfflineView> {
-  String? _eduhubLocationID;
+  Map<String, String>? _eduhubLocation;
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
@@ -102,11 +102,17 @@ class _EdukiosKonsultasiOfflineViewState
                             child: OutlinedTileButton(
                               onPressed: () {
                                 showLokasiBottomSheet(
-                                    context: context, lokasiType: "eduhub");
+                                        context: context, lokasiType: "eduhub")
+                                    .then((value) => setState(() {
+                                          _eduhubLocation = value;
+                                        }));
                               },
                               leading: Text(
-                                _eduhubLocationID ?? "Lokasi Eduhub",
+                                _eduhubLocation == null
+                                    ? "Lokasi Eduhub"
+                                    : _eduhubLocation!["nama"]!,
                                 style: textTheme.titleSmall,
+                                overflow: TextOverflow.ellipsis,
                               ),
                               trailing: const Icon(
                                 Icons.chevron_right,
@@ -114,7 +120,7 @@ class _EdukiosKonsultasiOfflineViewState
                               ),
                             ),
                           ),
-                          _eduhubLocationID == null
+                          _eduhubLocation == null
                               ? SizedBox(
                                   height: 450.h,
                                   width: 320.w,
@@ -171,7 +177,10 @@ class _EdukiosKonsultasiOfflineViewState
                                                 "Edukios KeboIwa Tenggara",
                                             discountedPrice: "Rp. 60.000",
                                             price: "Rp. 20.000",
-                                            onButtonPressed: () {},
+                                            onButtonPressed: () {
+                                              Get.toNamed(
+                                                  "/dashboard/edukios/konsultasi/tutor");
+                                            },
                                           );
                                         },
                                       ),

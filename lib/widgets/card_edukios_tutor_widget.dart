@@ -162,7 +162,13 @@ class CardEdukiosTutor extends StatelessWidget {
                       width: 170.w,
                       child: ElevatedButton(
                         onPressed: onButtonPressed,
-                        child: const Text("Konsultasi"),
+                        child: Text(
+                          "Konsultasi",
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium!
+                              .copyWith(color: Colors.white),
+                        ),
                       ),
                     ),
                   ],

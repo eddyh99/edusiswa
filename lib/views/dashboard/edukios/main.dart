@@ -47,7 +47,9 @@ class _EdukiosMainState extends State<EdukiosMain> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.toNamed("/dashboard/edukios/account");
+            },
             splashRadius: 20.r,
             icon: Icon(
               Icons.menu,
@@ -138,7 +140,7 @@ class _EdukiosMainState extends State<EdukiosMain> {
                             alignment: AlignmentDirectional.center,
                             children: [
                               Positioned(
-                                top: 40.h,
+                                top: 35.h,
                                 child: SizedBox(
                                   height: 90.h,
                                   child: Image.asset(
@@ -150,7 +152,7 @@ class _EdukiosMainState extends State<EdukiosMain> {
                               Positioned(
                                 bottom: 15.h,
                                 child: Text(
-                                  "Konsutasi",
+                                  "Konsultasi",
                                   style: textTheme.displayMedium!
                                       .copyWith(color: Colors.white),
                                 ),
@@ -175,7 +177,7 @@ class _EdukiosMainState extends State<EdukiosMain> {
                             alignment: AlignmentDirectional.center,
                             children: [
                               Positioned(
-                                top: 20.h,
+                                top: 17.h,
                                 child: SizedBox(
                                   height: 120.h,
                                   child: Image.asset(

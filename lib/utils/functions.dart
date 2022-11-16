@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulife/controllers/lokasi_controller.dart';
 import 'package:ulife/controllers/outlet_controller.dart';
+import 'package:ulife/utils/extensions.dart';
 import 'package:ulife/widgets/lokasi_fullscreen_widget.dart';
 import 'package:ulife/widgets/outlets_fullscreen_widget.dart';
 import 'package:ulife/widgets/outlinedtile_button_widget.dart';
@@ -11,6 +12,31 @@ void printDebug(Object? object) {
   if (kDebugMode) {
     print(object);
   }
+}
+
+Future<JenisKelamin?> showJenisKelaminMenu({
+  required BuildContext context,
+}) async {
+  return await showMenu(
+      context: context,
+      position: RelativeRect.fromLTRB(180.w, 400.h, 180.w, 400.h),
+      items: [
+        PopupMenuItem(
+          value: JenisKelamin.laki,
+          child: Text(
+            "Laki-laki",
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
+        ),
+        PopupMenuItem(
+          value: JenisKelamin.perempuan,
+          child: Text(
+            "Perempuan",
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
+        ),
+      ],
+      elevation: 8.0);
 }
 
 Future<int?> showPilihKelasBottomSheet(

@@ -2,6 +2,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
+import 'package:ulife/utils/extensions.dart';
+import 'package:ulife/utils/functions.dart';
+import 'package:ulife/widgets/textfield_ubahprofil_widget.dart';
 
 class UbahProfilView extends StatefulWidget {
   const UbahProfilView({super.key});
@@ -13,6 +17,27 @@ class UbahProfilView extends StatefulWidget {
 }
 
 class _UbahProfilViewState extends State<UbahProfilView> {
+  final DateFormat _dateFormat = DateFormat("dd MMMM yyyy");
+  final TextEditingController _namaTextController = TextEditingController();
+  final TextEditingController _userTextController = TextEditingController();
+  final TextEditingController _emailTextController = TextEditingController();
+  final TextEditingController _hpTextController = TextEditingController();
+
+  late JenisKelamin _jenisKelamin;
+
+  late DateTime _birthDate;
+
+  @override
+  void initState() {
+    super.initState();
+    _namaTextController.text = "Miracle Culhane";
+    _userTextController.text = "miracleculhane1991";
+    _emailTextController.text = "culhane.miracle87@gmail.com";
+    _hpTextController.text = "08177897652";
+    _jenisKelamin = JenisKelamin.perempuan;
+    _birthDate = DateTime(1991, 7, 12);
+  }
+
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
@@ -116,107 +141,113 @@ class _UbahProfilViewState extends State<UbahProfilView> {
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     children: [
-                      GestureDetector(
-                        onTap: () {},
-                        child: ListTile(
-                          dense: true,
-                          contentPadding: EdgeInsets.zero,
-                          minLeadingWidth: 100.w,
-                          leading: Text(
-                            "Nama",
-                            style: textTheme.bodyMedium!
-                                .copyWith(color: Colors.grey),
+                      ListTile(
+                        dense: true,
+                        contentPadding: EdgeInsets.zero,
+                        minLeadingWidth: 90.w,
+                        leading: Text(
+                          "Nama",
+                          style: textTheme.bodyMedium!
+                              .copyWith(color: Colors.grey),
+                        ),
+                        title: UbahProfilTextField(
+                          controller: _namaTextController,
+                          hintText: "Masukkan Nama",
+                        ),
+                        trailing: GestureDetector(
+                          onTap: () {},
+                          child: const Icon(
+                            Icons.chevron_right,
+                            color: Colors.indigo,
                           ),
-                          title: Text(
-                            "Miracle Culhane",
-                            style: textTheme.bodyMedium,
-                            overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      ListTile(
+                        dense: true,
+                        contentPadding: EdgeInsets.zero,
+                        minLeadingWidth: 90.w,
+                        leading: Text(
+                          "Username",
+                          style: textTheme.bodyMedium!
+                              .copyWith(color: Colors.grey),
+                        ),
+                        title: UbahProfilTextField(
+                          controller: _userTextController,
+                          hintText: "Masukkan Username",
+                        ),
+                        trailing: GestureDetector(
+                          onTap: () {},
+                          child: const Icon(
+                            Icons.chevron_right,
+                            color: Colors.indigo,
                           ),
-                          trailing: const Icon(
+                        ),
+                      ),
+                      ListTile(
+                        dense: true,
+                        contentPadding: EdgeInsets.zero,
+                        minLeadingWidth: 90.w,
+                        leading: Text(
+                          "Email",
+                          style: textTheme.bodyMedium!
+                              .copyWith(color: Colors.grey),
+                        ),
+                        title: UbahProfilTextField(
+                          controller: _emailTextController,
+                          hintText: "Masukkan Email",
+                        ),
+                        trailing: GestureDetector(
+                          onTap: () {},
+                          child: const Icon(
+                            Icons.chevron_right,
+                            color: Colors.indigo,
+                          ),
+                        ),
+                      ),
+                      ListTile(
+                        dense: true,
+                        contentPadding: EdgeInsets.zero,
+                        minLeadingWidth: 90.w,
+                        leading: Text(
+                          "No. HP",
+                          style: textTheme.bodyMedium!
+                              .copyWith(color: Colors.grey),
+                        ),
+                        title: UbahProfilTextField(
+                          controller: _hpTextController,
+                          hintText: "Masukkan No. HP",
+                        ),
+                        trailing: GestureDetector(
+                          onTap: () {},
+                          child: const Icon(
                             Icons.chevron_right,
                             color: Colors.indigo,
                           ),
                         ),
                       ),
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          showJenisKelaminMenu(context: context).then((value) {
+                            setState(() {
+                              if (value != null) {
+                                _jenisKelamin = value;
+                              }
+                            });
+                          });
+                        },
                         child: ListTile(
                           dense: true,
                           contentPadding: EdgeInsets.zero,
-                          minLeadingWidth: 100.w,
-                          leading: Text(
-                            "Username",
-                            style: textTheme.bodyMedium!
-                                .copyWith(color: Colors.grey),
-                          ),
-                          title: Text(
-                            "miracleculhane1991",
-                            style: textTheme.bodyMedium,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          trailing: const Icon(
-                            Icons.chevron_right,
-                            color: Colors.indigo,
-                          ),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {},
-                        child: ListTile(
-                          dense: true,
-                          contentPadding: EdgeInsets.zero,
-                          minLeadingWidth: 100.w,
-                          leading: Text(
-                            "Email",
-                            style: textTheme.bodyMedium!
-                                .copyWith(color: Colors.grey),
-                          ),
-                          title: Text(
-                            "culhane.miracle87@gmail.com",
-                            style: textTheme.bodyMedium,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          trailing: const Icon(
-                            Icons.chevron_right,
-                            color: Colors.indigo,
-                          ),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {},
-                        child: ListTile(
-                          dense: true,
-                          contentPadding: EdgeInsets.zero,
-                          minLeadingWidth: 100.w,
-                          leading: Text(
-                            "No. HP",
-                            style: textTheme.bodyMedium!
-                                .copyWith(color: Colors.grey),
-                          ),
-                          title: Text(
-                            "081234667891",
-                            style: textTheme.bodyMedium,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          trailing: const Icon(
-                            Icons.chevron_right,
-                            color: Colors.indigo,
-                          ),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {},
-                        child: ListTile(
-                          dense: true,
-                          contentPadding: EdgeInsets.zero,
-                          minLeadingWidth: 100.w,
+                          minLeadingWidth: 90.w,
                           leading: Text(
                             "Jenis Kelamin",
                             style: textTheme.bodyMedium!
                                 .copyWith(color: Colors.grey),
                           ),
                           title: Text(
-                            "Perempuan",
+                            _jenisKelamin == JenisKelamin.laki
+                                ? "Laki-laki"
+                                : "Perempuan",
                             style: textTheme.bodyMedium,
                             overflow: TextOverflow.ellipsis,
                           ),
@@ -227,18 +258,33 @@ class _UbahProfilViewState extends State<UbahProfilView> {
                         ),
                       ),
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          showDatePicker(
+                                  context: context,
+                                  initialDate: _birthDate,
+                                  firstDate: DateTime(1900),
+                                  lastDate: DateTime(2100))
+                              .then((value) {
+                            if (mounted) {
+                              if (value != null) {
+                                setState(() {
+                                  _birthDate = value;
+                                });
+                              }
+                            }
+                          });
+                        },
                         child: ListTile(
                           dense: true,
                           contentPadding: EdgeInsets.zero,
-                          minLeadingWidth: 100.w,
+                          minLeadingWidth: 90.w,
                           leading: Text(
                             "Tanggal Lahir",
                             style: textTheme.bodyMedium!
                                 .copyWith(color: Colors.grey),
                           ),
                           title: Text(
-                            "12 Juli 1991",
+                            _dateFormat.format(_birthDate),
                             style: textTheme.bodyMedium,
                             overflow: TextOverflow.ellipsis,
                           ),

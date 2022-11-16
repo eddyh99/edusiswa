@@ -1,28 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class UbahPasswordTextFormField extends StatelessWidget {
-  const UbahPasswordTextFormField(
-      {super.key,
-      this.controller,
-      this.validator,
-      this.hintText,
-      this.obscureText = false});
+class UbahProfilTextField extends StatelessWidget {
+  const UbahProfilTextField({
+    super.key,
+    this.controller,
+    this.hintText,
+  });
 
   final TextEditingController? controller;
-  final String? Function(String?)? validator;
   final String? hintText;
-  final bool obscureText;
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
+    return TextField(
       controller: controller,
-      validator: validator,
-      obscureText: obscureText,
       maxLines: 1,
       decoration: InputDecoration(
         hintText: hintText,
+        isDense: true,
         contentPadding: EdgeInsets.symmetric(horizontal: 0.0, vertical: 10.h),
         border: UnderlineInputBorder(
           borderSide: BorderSide(width: 3.h, color: Colors.grey.shade300),

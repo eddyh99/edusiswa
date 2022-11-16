@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:ulife/controllers/lokasi_controller.dart';
 import 'package:ulife/controllers/outlet_controller.dart';
 import 'package:ulife/views/dashboard/edukasi_detail_view.dart';
+import 'package:ulife/views/dashboard/edukios/account_view.dart';
 import 'package:ulife/views/dashboard/edukios/konsultasi_view.dart';
 import 'package:ulife/views/dashboard/edukios/konsultasi_offline_view.dart';
 import 'package:ulife/views/dashboard/edukios/main.dart';
@@ -385,6 +386,11 @@ class UlifeApp extends StatelessWidget {
             GetPage(
               name: '/dashboard/edukios/',
               page: () => const EdukiosMain(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: '/dashboard/edukios/account',
+              page: () => const EdukiosAccountView(),
               transition: Transition.rightToLeft,
             ),
             GetPage(

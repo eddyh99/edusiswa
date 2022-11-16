@@ -19,6 +19,8 @@ class _SignUpViewState extends State<SignUpView> {
   final TextEditingController _passwordTextController = TextEditingController();
   final TextEditingController _hpTextController = TextEditingController();
 
+  bool _hidePassword = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -143,9 +145,25 @@ class _SignUpViewState extends State<SignUpView> {
                             controller: _passwordTextController,
                             maxLines: 1,
                             keyboardType: TextInputType.text,
-                            obscureText: true,
-                            decoration: const InputDecoration(
+                            obscureText: _hidePassword,
+                            decoration: InputDecoration(
                               hintText: "Masukan password",
+                              suffixIcon: GestureDetector(
+                                onTap: () {
+                                  if (mounted) {
+                                    setState(() {
+                                      _hidePassword =
+                                          _hidePassword ? false : true;
+                                    });
+                                  }
+                                },
+                                child: Image.asset(
+                                  "assets/images/${_hidePassword ? "visibility-on.png" : "visibility-off.png"}",
+                                  width: 22.w,
+                                  color: Colors.grey.shade400,
+                                  colorBlendMode: BlendMode.srcATop,
+                                ),
+                              ),
                             ),
                             validator: (value) {
                               if (value == null || value.isEmpty) {
@@ -239,17 +257,26 @@ class _SignUpViewState extends State<SignUpView> {
                       Wrap(
                         spacing: 30.w,
                         children: [
-                          Image.asset(
-                            "assets/images/google.png",
-                            scale: 1.2,
+                          GestureDetector(
+                            onTap: () {},
+                            child: Image.asset(
+                              "assets/images/google.png",
+                              scale: 1.2,
+                            ),
                           ),
-                          Image.asset(
-                            "assets/images/facebook.png",
-                            scale: 1.2,
+                          GestureDetector(
+                            onTap: () {},
+                            child: Image.asset(
+                              "assets/images/facebook.png",
+                              scale: 1.2,
+                            ),
                           ),
-                          Image.asset(
-                            "assets/images/apple.png",
-                            scale: 1.2,
+                          GestureDetector(
+                            onTap: () {},
+                            child: Image.asset(
+                              "assets/images/apple.png",
+                              scale: 1.2,
+                            ),
                           ),
                         ],
                       ),

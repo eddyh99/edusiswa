@@ -285,7 +285,7 @@ class _PaketKategoriViewState extends State<PaketKategoriView> {
                             title: FittedBox(
                               fit: BoxFit.scaleDown,
                               child: Text(
-                                UEducation.creativo.title,
+                                UEducation.privatecreativo.title,
                                 overflow: TextOverflow.ellipsis,
                                 style: textTheme.displaySmall,
                               ),

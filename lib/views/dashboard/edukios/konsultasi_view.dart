@@ -19,8 +19,8 @@ class _EdukiosKonsultasiViewState extends State<EdukiosKonsultasiView> {
     {"nama": "Matematika", "logo": "math.png"},
     {"nama": "IPA", "logo": "laboratory.png"},
     {"nama": "IPS", "logo": "history.png"},
-    {"nama": "Bahasa Indonesia", "logo": "indonesia.png"},
-    {"nama": "Bahasa Inggris", "logo": "britain.png"},
+    {"nama": "Bahasa\nIndonesia", "logo": "indonesia.png"},
+    {"nama": "Bahasa\nInggris", "logo": "britain.png"},
     {"nama": "PJOK", "logo": "sports.png"},
     {"nama": "PPKN", "logo": "garuda.png"},
   ];

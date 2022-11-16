@@ -1,5 +1,7 @@
 enum DashboardPages { home, myclass, liveclass, transaction, account }
 
+enum JenisKelamin { laki, perempuan }
+
 enum JenisPertemuan { online, offline }
 
 enum Paket {

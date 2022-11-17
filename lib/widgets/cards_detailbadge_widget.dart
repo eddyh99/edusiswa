@@ -15,7 +15,7 @@ class CardsBadge extends StatelessWidget {
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(10.r),
         ),
-        color: Colors.indigo,
+        color: Theme.of(context).primaryColor,
       ),
       child: Text(
         text,

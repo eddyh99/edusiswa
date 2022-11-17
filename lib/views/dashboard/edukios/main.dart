@@ -31,12 +31,12 @@ class _EdukiosMainState extends State<EdukiosMain> {
               width: 30.sp,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(8.r)),
-                color: Colors.indigo.shade100,
+                color: Theme.of(context).primaryColor.withOpacity(0.2),
               ),
               child: Icon(
                 Icons.chevron_left,
                 size: 24.sp,
-                color: Colors.indigo,
+                color: Theme.of(context).primaryColor,
               ),
             ),
           ),
@@ -54,7 +54,7 @@ class _EdukiosMainState extends State<EdukiosMain> {
             icon: Icon(
               Icons.menu,
               size: 24.sp,
-              color: Colors.indigo,
+              color: Theme.of(context).primaryColor,
             ),
           ),
         ],
@@ -88,7 +88,7 @@ class _EdukiosMainState extends State<EdukiosMain> {
                                 "Konsultasi:",
                                 style: textTheme.bodySmall!.copyWith(
                                   fontWeight: FontWeight.w700,
-                                  color: Colors.indigo,
+                                  color: Theme.of(context).primaryColor,
                                 ),
                               ),
                               Text(
@@ -103,7 +103,7 @@ class _EdukiosMainState extends State<EdukiosMain> {
                         "Bronze Member",
                         style: textTheme.bodySmall!.copyWith(
                           fontWeight: FontWeight.w700,
-                          color: Colors.indigo,
+                          color: Theme.of(context).primaryColor,
                         ),
                       ),
                     ],
@@ -306,7 +306,7 @@ class _EdukiosMainState extends State<EdukiosMain> {
                       spaceBetween: 4.w,
                       widthAnimation: 27.w,
                     ),
-                    activeColor: Colors.indigo,
+                    activeColor: Theme.of(context).primaryColor,
                     disableColor: Colors.grey,
                     animation: true,
                     borderRadius: 10.r,

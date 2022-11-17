@@ -8,6 +8,7 @@ import 'package:ulife/views/dashboard/dashboardpages/home_view.dart';
 import 'package:ulife/views/dashboard/dashboardpages/liveclass_view.dart';
 import 'package:ulife/views/dashboard/dashboardpages/myclass_view.dart';
 import 'package:ulife/views/dashboard/dashboardpages/transaction_view.dart';
+import 'package:ulife/widgets/keepalivepage_widget.dart';
 
 class DashboardMain extends StatefulWidget {
   const DashboardMain({super.key});
@@ -22,11 +23,11 @@ class _DashboardMainState extends State<DashboardMain> {
   final DashboardPages _page = Get.arguments["page"];
 
   final Map<DashboardPages, Widget> _pageList = const {
-    DashboardPages.home: HomeView(),
-    DashboardPages.myclass: MyClassView(),
-    DashboardPages.liveclass: LiveClassView(),
-    DashboardPages.transaction: TransactionView(),
-    DashboardPages.account: AccountView(),
+    DashboardPages.home: KeepAlivePage(child: HomeView()),
+    DashboardPages.myclass: KeepAlivePage(child: MyClassView()),
+    DashboardPages.liveclass: KeepAlivePage(child: LiveClassView()),
+    DashboardPages.transaction: KeepAlivePage(child: TransactionView()),
+    DashboardPages.account: KeepAlivePage(child: AccountView()),
   };
 
   late int _pageIndex;
@@ -71,11 +72,11 @@ class _DashboardMainState extends State<DashboardMain> {
               fontWeight: FontWeight.w300,
             ),
         unselectedFontSize: 9.sp,
-        unselectedItemColor: Colors.indigo.shade200,
+        unselectedItemColor: Theme.of(context).primaryColor.withOpacity(0.4),
         showUnselectedLabels: true,
         selectedLabelStyle: Theme.of(context).textTheme.bodyMedium,
         selectedFontSize: 9.sp,
-        selectedItemColor: Colors.indigo,
+        selectedItemColor: Theme.of(context).primaryColor,
         items: const [
           BottomNavigationBarItem(
               icon: Icon(

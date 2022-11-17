@@ -92,7 +92,9 @@ class CardUsersReview extends StatelessWidget {
                     children: [
                       Icon(
                         isLiked ? Icons.thumb_up : Icons.thumb_up_outlined,
-                        color: isLiked ? Colors.indigo : Colors.grey,
+                        color: isLiked
+                            ? Theme.of(context).primaryColor
+                            : Colors.grey,
                         size: 18.sp,
                       ),
                       SizedBox(
@@ -101,7 +103,9 @@ class CardUsersReview extends StatelessWidget {
                       Text(
                         likeCount ?? "0",
                         style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                              color: isLiked ? Colors.indigo : Colors.grey,
+                              color: isLiked
+                                  ? Theme.of(context).primaryColor
+                                  : Colors.grey,
                             ),
                       ),
                     ],

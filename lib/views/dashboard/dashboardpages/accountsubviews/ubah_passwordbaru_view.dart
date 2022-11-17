@@ -34,12 +34,12 @@ class _UbahPasswordBaruViewState extends State<UbahPasswordBaruView> {
               width: 30.sp,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(8.r)),
-                color: Colors.indigo.shade100,
+                color: Theme.of(context).primaryColor.withOpacity(0.2),
               ),
               child: Icon(
                 Icons.chevron_left,
                 size: 24.sp,
-                color: Colors.indigo,
+                color: Theme.of(context).primaryColor,
               ),
             ),
           ),

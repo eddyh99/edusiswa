@@ -23,8 +23,8 @@ class MateriPlayerCard extends StatelessWidget {
       width: width ?? double.infinity,
       child: Card(
         color: Theme.of(context).brightness == Brightness.light
-            ? Colors.indigo.shade100
-            : Colors.indigo.shade900,
+            ? Theme.of(context).primaryColor.withOpacity(0.2)
+            : Theme.of(context).primaryColor.withOpacity(0.9),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(15.r)),
         ),
@@ -34,7 +34,7 @@ class MateriPlayerCard extends StatelessWidget {
             contentPadding: EdgeInsets.zero,
             leading: CircleAvatar(
               radius: 40.r,
-              backgroundColor: Colors.indigo,
+              backgroundColor: Theme.of(context).primaryColor,
               child: leading,
             ),
             title: Text(
@@ -55,7 +55,7 @@ class MateriPlayerCard extends StatelessWidget {
                 backgroundColor: Colors.transparent,
                 child: Icon(
                   Icons.play_arrow,
-                  color: Colors.indigo,
+                  color: Theme.of(context).primaryColor,
                   size: 32.sp,
                 ),
               ),

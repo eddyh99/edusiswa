@@ -32,12 +32,12 @@ class _KeranjangViewState extends State<KeranjangView> {
               width: 30.sp,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(8.r)),
-                color: Colors.indigo.shade100,
+                color: Theme.of(context).primaryColor.withOpacity(0.2),
               ),
               child: Icon(
                 Icons.chevron_left,
                 size: 24.sp,
-                color: Colors.indigo,
+                color: Theme.of(context).primaryColor,
               ),
             ),
           ),
@@ -151,7 +151,7 @@ class _KeranjangViewState extends State<KeranjangView> {
                         "Rp. 1.050.000",
                         textAlign: TextAlign.right,
                         style: textTheme.titleLarge!
-                            .copyWith(color: Colors.indigo),
+                            .copyWith(color: Theme.of(context).primaryColor),
                       ),
                     ],
                   ),

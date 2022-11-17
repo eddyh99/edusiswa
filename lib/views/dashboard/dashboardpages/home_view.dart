@@ -11,6 +11,7 @@ import 'package:ulife/widgets/kategoripaket_card_widget.dart';
 import 'package:ulife/widgets/paket_card_widget.dart';
 import 'package:ulife/widgets/paket_chip_widget.dart';
 import 'package:ulife/widgets/paket_rating_widget.dart';
+import 'package:ulife/widgets/shimmer_card_widget.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -147,7 +148,7 @@ class _HomeViewState extends State<HomeView> {
                         height: 5.h,
                         spaceBetween: 4.w,
                         widthAnimation: 27.w),
-                    activeColor: Colors.indigo,
+                    activeColor: Theme.of(context).primaryColor,
                     disableColor: Colors.grey,
                     animation: true,
                     borderRadius: 10.r,
@@ -260,12 +261,12 @@ class _HomeViewState extends State<HomeView> {
                             children: [
                               Text(
                                 "Lihat semua",
-                                style: textTheme.displaySmall!
-                                    .copyWith(color: Colors.indigo),
+                                style: textTheme.displaySmall!.copyWith(
+                                    color: Theme.of(context).primaryColor),
                               ),
-                              const Icon(
+                              Icon(
                                 Icons.chevron_right_outlined,
-                                color: Colors.indigo,
+                                color: Theme.of(context).primaryColor,
                               ),
                             ],
                           ),
@@ -279,74 +280,100 @@ class _HomeViewState extends State<HomeView> {
                   //UEducation paket list
                   SizedBox(
                     height: 120.h,
-                    child: ListView(
-                      shrinkWrap: true,
-                      padding: EdgeInsets.symmetric(horizontal: 20.w),
-                      scrollDirection: Axis.horizontal,
-                      children: [
-                        //dummy data generate
-                        for (int x = 0; x < 3; x++) ...[
-                          GestureDetector(
-                            onTap: () {
-                              Get.toNamed("/dashboard/paket-detail",
-                                  arguments: {"paket": "ID00$x"});
-                            },
-                            child: PaketCard(
+                    child: FutureBuilder(
+                      future: Future.delayed(const Duration(seconds: 3), () {}),
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState == ConnectionState.done) {
+                          return ListView(
+                            shrinkWrap: true,
+                            padding: EdgeInsets.symmetric(horizontal: 20.w),
+                            scrollDirection: Axis.horizontal,
+                            children: [
+                              //dummy data generate
+                              for (int x = 0; x < 3; x++) ...[
+                                GestureDetector(
+                                  onTap: () {
+                                    Get.toNamed("/dashboard/paket-detail",
+                                        arguments: {"paket": "ID00$x"});
+                                  },
+                                  child: PaketCard(
+                                    height: 120.h,
+                                    width: 320.w,
+                                    margin: x < 2
+                                        ? EdgeInsets.only(right: 20.w)
+                                        : null,
+                                    borderRadius: 10.r,
+                                    contentMargin: EdgeInsets.symmetric(
+                                        horizontal: 10.sp, vertical: 10.sp),
+                                    leadingImage: Image.asset(
+                                      "assets/images/paket-leading-image.png",
+                                      fit: BoxFit.fill,
+                                      height: 100.sp,
+                                      width: 100.sp,
+                                    ),
+                                    leadingBorderRadius: 12.r,
+                                    title: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        const PaketChip(text: "Baca Tulis"),
+                                        FittedBox(
+                                          fit: BoxFit.scaleDown,
+                                          child: Text(
+                                            "Baca Tulis untuk TK",
+                                            overflow: TextOverflow.ellipsis,
+                                            style: textTheme.bodyLarge!
+                                                .copyWith(height: 1.3.h),
+                                          ),
+                                        ), //Paket title
+                                      ],
+                                    ),
+                                    subtitle: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "Rp. 1.350.000",
+                                          style: textTheme.bodySmall!.copyWith(
+                                            fontSize: 10.sp,
+                                            color: Colors.grey,
+                                            decoration:
+                                                TextDecoration.lineThrough,
+                                          ),
+                                        ), //Initial price
+                                        Text(
+                                          "Rp. 350.000",
+                                          overflow: TextOverflow.ellipsis,
+                                          style: textTheme.bodyLarge!.copyWith(
+                                              color: Theme.of(context)
+                                                  .primaryColor,
+                                              height: 1.h),
+                                        ), //Discount price
+                                        const PaketRating(ratingCount: "4.9"),
+                                      ],
+                                    ),
+                                    ribbon:
+                                        const CardsRibbon(text: "Best Seller"),
+                                    badge: const CardsBadge(text: "Detail"),
+                                  ),
+                                ),
+                              ],
+                            ],
+                          );
+                        }
+                        return ListView(
+                          shrinkWrap: true,
+                          padding: EdgeInsets.symmetric(horizontal: 20.w),
+                          scrollDirection: Axis.horizontal,
+                          children: [
+                            SizedBox(
                               height: 120.h,
                               width: 320.w,
-                              margin:
-                                  x < 2 ? EdgeInsets.only(right: 20.w) : null,
-                              borderRadius: 10.r,
-                              contentMargin: EdgeInsets.symmetric(
-                                  horizontal: 10.sp, vertical: 10.sp),
-                              leadingImage: Image.asset(
-                                "assets/images/paket-leading-image.png",
-                                fit: BoxFit.fill,
-                                height: 100.sp,
-                                width: 100.sp,
-                              ),
-                              leadingBorderRadius: 12.r,
-                              title: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const PaketChip(text: "Baca Tulis"),
-                                  FittedBox(
-                                    fit: BoxFit.scaleDown,
-                                    child: Text(
-                                      "Baca Tulis untuk TK",
-                                      overflow: TextOverflow.ellipsis,
-                                      style: textTheme.bodyLarge!
-                                          .copyWith(height: 1.3.h),
-                                    ),
-                                  ), //Paket title
-                                ],
-                              ),
-                              subtitle: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Rp. 1.350.000",
-                                    style: textTheme.bodySmall!.copyWith(
-                                      fontSize: 10.sp,
-                                      color: Colors.grey,
-                                      decoration: TextDecoration.lineThrough,
-                                    ),
-                                  ), //Initial price
-                                  Text(
-                                    "Rp. 350.000",
-                                    overflow: TextOverflow.ellipsis,
-                                    style: textTheme.bodyLarge!.copyWith(
-                                        color: Colors.indigo, height: 1.h),
-                                  ), //Discount price
-                                  const PaketRating(ratingCount: "4.9"),
-                                ],
-                              ),
-                              ribbon: const CardsRibbon(text: "Best Seller"),
-                              badge: const CardsBadge(text: "Detail"),
-                            ),
-                          ),
-                        ],
-                      ],
+                              child: const ShimmerCard(),
+                            )
+                          ],
+                        );
+                      },
                     ),
                   ),
                   SizedBox(
@@ -367,12 +394,12 @@ class _HomeViewState extends State<HomeView> {
                             children: [
                               Text(
                                 "Lihat semua",
-                                style: textTheme.displaySmall!
-                                    .copyWith(color: Colors.indigo),
+                                style: textTheme.displaySmall!.copyWith(
+                                    color: Theme.of(context).primaryColor),
                               ),
-                              const Icon(
+                              Icon(
                                 Icons.chevron_right_outlined,
-                                color: Colors.indigo,
+                                color: Theme.of(context).primaryColor,
                               ),
                             ],
                           ),
@@ -386,74 +413,100 @@ class _HomeViewState extends State<HomeView> {
                   //UTalent paket list
                   SizedBox(
                     height: 120.h,
-                    child: ListView(
-                      shrinkWrap: true,
-                      padding: EdgeInsets.symmetric(horizontal: 20.w),
-                      scrollDirection: Axis.horizontal,
-                      children: [
-                        //dummy data generate
-                        for (int x = 0; x < 3; x++) ...[
-                          GestureDetector(
-                            onTap: () {
-                              Get.toNamed("/dashboard/paket-detail",
-                                  arguments: {"paket": "ID00$x"});
-                            },
-                            child: PaketCard(
+                    child: FutureBuilder(
+                      future: Future.delayed(const Duration(seconds: 3), () {}),
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState == ConnectionState.done) {
+                          return ListView(
+                            shrinkWrap: true,
+                            padding: EdgeInsets.symmetric(horizontal: 20.w),
+                            scrollDirection: Axis.horizontal,
+                            children: [
+                              //dummy data generate
+                              for (int x = 0; x < 3; x++) ...[
+                                GestureDetector(
+                                  onTap: () {
+                                    Get.toNamed("/dashboard/paket-detail",
+                                        arguments: {"paket": "ID00$x"});
+                                  },
+                                  child: PaketCard(
+                                    height: 120.h,
+                                    width: 320.w,
+                                    margin: x < 2
+                                        ? EdgeInsets.only(right: 20.w)
+                                        : null,
+                                    borderRadius: 10.r,
+                                    contentMargin: EdgeInsets.symmetric(
+                                        horizontal: 10.sp, vertical: 10.sp),
+                                    leadingImage: Image.asset(
+                                      "assets/images/paket-leading-image.png",
+                                      fit: BoxFit.fill,
+                                      height: 100.sp,
+                                      width: 100.sp,
+                                    ),
+                                    leadingBorderRadius: 12.r,
+                                    title: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        const PaketChip(text: "Baca Tulis"),
+                                        FittedBox(
+                                          fit: BoxFit.scaleDown,
+                                          child: Text(
+                                            "Baca Tulis untuk TK",
+                                            overflow: TextOverflow.ellipsis,
+                                            style: textTheme.bodyLarge!
+                                                .copyWith(height: 1.3.h),
+                                          ),
+                                        ), //Paket title
+                                      ],
+                                    ),
+                                    subtitle: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "Rp. 1.350.000",
+                                          style: textTheme.bodySmall!.copyWith(
+                                            fontSize: 10.sp,
+                                            color: Colors.grey,
+                                            decoration:
+                                                TextDecoration.lineThrough,
+                                          ),
+                                        ), //Initial price
+                                        Text(
+                                          "Rp. 350.000",
+                                          overflow: TextOverflow.ellipsis,
+                                          style: textTheme.bodyLarge!.copyWith(
+                                              color: Theme.of(context)
+                                                  .primaryColor,
+                                              height: 1.h),
+                                        ), //Discount price
+                                        const PaketRating(ratingCount: "4.9"),
+                                      ],
+                                    ),
+                                    ribbon:
+                                        const CardsRibbon(text: "Best Seller"),
+                                    badge: const CardsBadge(text: "Detail"),
+                                  ),
+                                ),
+                              ],
+                            ],
+                          );
+                        }
+                        return ListView(
+                          shrinkWrap: true,
+                          padding: EdgeInsets.symmetric(horizontal: 20.w),
+                          scrollDirection: Axis.horizontal,
+                          children: [
+                            SizedBox(
                               height: 120.h,
                               width: 320.w,
-                              margin:
-                                  x < 2 ? EdgeInsets.only(right: 20.w) : null,
-                              borderRadius: 10.r,
-                              contentMargin: EdgeInsets.symmetric(
-                                  horizontal: 10.sp, vertical: 10.sp),
-                              leadingImage: Image.asset(
-                                "assets/images/paket-leading-image.png",
-                                fit: BoxFit.fill,
-                                height: 100.sp,
-                                width: 100.sp,
-                              ),
-                              leadingBorderRadius: 12.r,
-                              title: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const PaketChip(text: "Baca Tulis"),
-                                  FittedBox(
-                                    fit: BoxFit.scaleDown,
-                                    child: Text(
-                                      "Baca Tulis untuk TK",
-                                      overflow: TextOverflow.ellipsis,
-                                      style: textTheme.bodyLarge!
-                                          .copyWith(height: 1.3.h),
-                                    ),
-                                  ), //Paket title
-                                ],
-                              ),
-                              subtitle: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Rp. 1.350.000",
-                                    style: textTheme.bodySmall!.copyWith(
-                                      fontSize: 10.sp,
-                                      color: Colors.grey,
-                                      decoration: TextDecoration.lineThrough,
-                                    ),
-                                  ), //Initial price
-                                  Text(
-                                    "Rp. 350.000",
-                                    overflow: TextOverflow.ellipsis,
-                                    style: textTheme.bodyLarge!.copyWith(
-                                        color: Colors.indigo, height: 1.h),
-                                  ), //Discount price
-                                  const PaketRating(ratingCount: "4.9"),
-                                ],
-                              ),
-                              ribbon: const CardsRibbon(text: "Best Seller"),
-                              badge: const CardsBadge(text: "Detail"),
-                            ),
-                          ),
-                        ],
-                      ],
+                              child: const ShimmerCard(),
+                            )
+                          ],
+                        );
+                      },
                     ),
                   ),
                   SizedBox(
@@ -474,12 +527,12 @@ class _HomeViewState extends State<HomeView> {
                             children: [
                               Text(
                                 "Lihat semua",
-                                style: textTheme.displaySmall!
-                                    .copyWith(color: Colors.indigo),
+                                style: textTheme.displaySmall!.copyWith(
+                                    color: Theme.of(context).primaryColor),
                               ),
-                              const Icon(
+                              Icon(
                                 Icons.chevron_right_outlined,
-                                color: Colors.indigo,
+                                color: Theme.of(context).primaryColor,
                               ),
                             ],
                           ),
@@ -493,74 +546,100 @@ class _HomeViewState extends State<HomeView> {
                   //codU paket list
                   SizedBox(
                     height: 120.h,
-                    child: ListView(
-                      shrinkWrap: true,
-                      padding: EdgeInsets.symmetric(horizontal: 20.w),
-                      scrollDirection: Axis.horizontal,
-                      children: [
-                        //dummy data generate
-                        for (int x = 0; x < 3; x++) ...[
-                          GestureDetector(
-                            onTap: () {
-                              Get.toNamed("/dashboard/paket-detail",
-                                  arguments: {"paket": "ID00$x"});
-                            },
-                            child: PaketCard(
+                    child: FutureBuilder(
+                      future: Future.delayed(const Duration(seconds: 3), () {}),
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState == ConnectionState.done) {
+                          return ListView(
+                            shrinkWrap: true,
+                            padding: EdgeInsets.symmetric(horizontal: 20.w),
+                            scrollDirection: Axis.horizontal,
+                            children: [
+                              //dummy data generate
+                              for (int x = 0; x < 3; x++) ...[
+                                GestureDetector(
+                                  onTap: () {
+                                    Get.toNamed("/dashboard/paket-detail",
+                                        arguments: {"paket": "ID00$x"});
+                                  },
+                                  child: PaketCard(
+                                    height: 120.h,
+                                    width: 320.w,
+                                    margin: x < 2
+                                        ? EdgeInsets.only(right: 20.w)
+                                        : null,
+                                    borderRadius: 10.r,
+                                    contentMargin: EdgeInsets.symmetric(
+                                        horizontal: 10.sp, vertical: 10.sp),
+                                    leadingImage: Image.asset(
+                                      "assets/images/paket-leading-image.png",
+                                      fit: BoxFit.fill,
+                                      height: 100.sp,
+                                      width: 100.sp,
+                                    ),
+                                    leadingBorderRadius: 12.r,
+                                    title: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        const PaketChip(text: "Baca Tulis"),
+                                        FittedBox(
+                                          fit: BoxFit.scaleDown,
+                                          child: Text(
+                                            "Baca Tulis untuk TK",
+                                            overflow: TextOverflow.ellipsis,
+                                            style: textTheme.bodyLarge!
+                                                .copyWith(height: 1.3.h),
+                                          ),
+                                        ), //Paket title
+                                      ],
+                                    ),
+                                    subtitle: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "Rp. 1.350.000",
+                                          style: textTheme.bodySmall!.copyWith(
+                                            fontSize: 10.sp,
+                                            color: Colors.grey,
+                                            decoration:
+                                                TextDecoration.lineThrough,
+                                          ),
+                                        ), //Initial price
+                                        Text(
+                                          "Rp. 350.000",
+                                          overflow: TextOverflow.ellipsis,
+                                          style: textTheme.bodyLarge!.copyWith(
+                                              color: Theme.of(context)
+                                                  .primaryColor,
+                                              height: 1.h),
+                                        ), //Discount price
+                                        const PaketRating(ratingCount: "4.9"),
+                                      ],
+                                    ),
+                                    ribbon:
+                                        const CardsRibbon(text: "Best Seller"),
+                                    badge: const CardsBadge(text: "Detail"),
+                                  ),
+                                ),
+                              ],
+                            ],
+                          );
+                        }
+                        return ListView(
+                          shrinkWrap: true,
+                          padding: EdgeInsets.symmetric(horizontal: 20.w),
+                          scrollDirection: Axis.horizontal,
+                          children: [
+                            SizedBox(
                               height: 120.h,
                               width: 320.w,
-                              margin:
-                                  x < 2 ? EdgeInsets.only(right: 20.w) : null,
-                              borderRadius: 10.r,
-                              contentMargin: EdgeInsets.symmetric(
-                                  horizontal: 10.sp, vertical: 10.sp),
-                              leadingImage: Image.asset(
-                                "assets/images/paket-leading-image.png",
-                                fit: BoxFit.fill,
-                                height: 100.sp,
-                                width: 100.sp,
-                              ),
-                              leadingBorderRadius: 12.r,
-                              title: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const PaketChip(text: "Baca Tulis"),
-                                  FittedBox(
-                                    fit: BoxFit.scaleDown,
-                                    child: Text(
-                                      "Baca Tulis untuk TK",
-                                      overflow: TextOverflow.ellipsis,
-                                      style: textTheme.bodyLarge!
-                                          .copyWith(height: 1.3.h),
-                                    ),
-                                  ), //Paket title
-                                ],
-                              ),
-                              subtitle: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Rp. 1.350.000",
-                                    style: textTheme.bodySmall!.copyWith(
-                                      fontSize: 10.sp,
-                                      color: Colors.grey,
-                                      decoration: TextDecoration.lineThrough,
-                                    ),
-                                  ), //Initial price
-                                  Text(
-                                    "Rp. 350.000",
-                                    overflow: TextOverflow.ellipsis,
-                                    style: textTheme.bodyLarge!.copyWith(
-                                        color: Colors.indigo, height: 1.h),
-                                  ), //Discount price
-                                  const PaketRating(ratingCount: "4.9"),
-                                ],
-                              ),
-                              ribbon: const CardsRibbon(text: "Best Seller"),
-                              badge: const CardsBadge(text: "Detail"),
-                            ),
-                          ),
-                        ],
-                      ],
+                              child: const ShimmerCard(),
+                            )
+                          ],
+                        );
+                      },
                     ),
                   ),
                 ],

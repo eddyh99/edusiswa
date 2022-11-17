@@ -46,12 +46,12 @@ class _EdukiosKonsultasiViewState extends State<EdukiosKonsultasiView> {
               width: 30.sp,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(8.r)),
-                color: Colors.indigo.shade100,
+                color: Theme.of(context).primaryColor.withOpacity(0.2),
               ),
               child: Icon(
                 Icons.chevron_left,
                 size: 24.sp,
-                color: Colors.indigo,
+                color: Theme.of(context).primaryColor,
               ),
             ),
           ),
@@ -132,7 +132,9 @@ class _EdukiosKonsultasiViewState extends State<EdukiosKonsultasiView> {
                                         borderRadius:
                                             BorderRadius.circular(10.r),
                                         color: _selectedMatpel == matpel["nama"]
-                                            ? Colors.indigo.shade200
+                                            ? Theme.of(context)
+                                                .primaryColor
+                                                .withOpacity(0.4)
                                             : Colors.blueGrey.shade50,
                                       ),
                                       child: Column(
@@ -194,9 +196,9 @@ class _EdukiosKonsultasiViewState extends State<EdukiosKonsultasiView> {
                                     : "Pilih Kelas",
                                 style: textTheme.titleSmall,
                               ),
-                              trailing: const Icon(
+                              trailing: Icon(
                                 Icons.chevron_right,
-                                color: Colors.indigo,
+                                color: Theme.of(context).primaryColor,
                               ),
                             ),
                           ),
@@ -236,7 +238,9 @@ class _EdukiosKonsultasiViewState extends State<EdukiosKonsultasiView> {
                                       borderRadius: BorderRadius.circular(10.r),
                                       color: _jenisPertemuan ==
                                               JenisPertemuan.online
-                                          ? Colors.indigo.shade200
+                                          ? Theme.of(context)
+                                              .primaryColor
+                                              .withOpacity(0.4)
                                           : Colors.blueGrey.shade50,
                                     ),
                                     child: Stack(
@@ -282,7 +286,9 @@ class _EdukiosKonsultasiViewState extends State<EdukiosKonsultasiView> {
                                       borderRadius: BorderRadius.circular(10.r),
                                       color: _jenisPertemuan ==
                                               JenisPertemuan.offline
-                                          ? Colors.indigo.shade200
+                                          ? Theme.of(context)
+                                              .primaryColor
+                                              .withOpacity(0.4)
                                           : Colors.blueGrey.shade50,
                                     ),
                                     child: Stack(
@@ -323,12 +329,16 @@ class _EdukiosKonsultasiViewState extends State<EdukiosKonsultasiView> {
                                       _jenisPertemuan != null &&
                                       _selectedKelas > 0
                                   ? () {
-                                      Get.toNamed(
-                                          "/dashboard/edukios/konsultasi/${_jenisPertemuan!.name}",
-                                          arguments: {
-                                            "matpel": _selectedMatpel,
-                                            "kelas": _selectedKelas
-                                          });
+                                      // hapus kondisi jika sudah ada halaman online
+                                      if (_jenisPertemuan !=
+                                          JenisPertemuan.online) {
+                                        Get.toNamed(
+                                            "/dashboard/edukios/konsultasi/${_jenisPertemuan!.name}",
+                                            arguments: {
+                                              "matpel": _selectedMatpel,
+                                              "kelas": _selectedKelas
+                                            });
+                                      }
                                     }
                                   : null,
                               style: ElevatedButton.styleFrom(

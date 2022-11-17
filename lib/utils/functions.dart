@@ -87,14 +87,14 @@ Future<int?> showPilihKelasBottomSheet(
                               width: 100.w,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(30.r),
-                                color: Colors.indigo,
+                                color: Theme.of(context).primaryColor,
                               ),
                               child: Container(
                                 margin: EdgeInsets.all(1.sp),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(30.r),
                                   color: selectedKelas == x
-                                      ? Colors.indigo
+                                      ? Theme.of(context).primaryColor
                                       : Colors.white,
                                 ),
                                 child: Center(
@@ -106,7 +106,8 @@ Future<int?> showPilihKelasBottomSheet(
                                         .copyWith(
                                             color: selectedKelas == x
                                                 ? Colors.white
-                                                : Colors.indigo),
+                                                : Theme.of(context)
+                                                    .primaryColor),
                                   ),
                                 ),
                               ),
@@ -219,9 +220,9 @@ Future<Map<String, String>?> showLokasiBottomSheet(
                                 style: Theme.of(context).textTheme.titleSmall,
                                 overflow: TextOverflow.ellipsis,
                               ),
-                              trailing: const Icon(
+                              trailing: Icon(
                                 Icons.chevron_right,
-                                color: Colors.indigo,
+                                color: Theme.of(context).primaryColor,
                               ),
                             ),
                           ),
@@ -270,9 +271,9 @@ Future<Map<String, String>?> showLokasiBottomSheet(
                                 style: Theme.of(context).textTheme.titleSmall,
                                 overflow: TextOverflow.ellipsis,
                               ),
-                              trailing: const Icon(
+                              trailing: Icon(
                                 Icons.chevron_right,
-                                color: Colors.indigo,
+                                color: Theme.of(context).primaryColor,
                               ),
                             ),
                           ),
@@ -320,9 +321,9 @@ Future<Map<String, String>?> showLokasiBottomSheet(
                                 style: Theme.of(context).textTheme.titleSmall,
                                 overflow: TextOverflow.ellipsis,
                               ),
-                              trailing: const Icon(
+                              trailing: Icon(
                                 Icons.chevron_right,
-                                color: Colors.indigo,
+                                color: Theme.of(context).primaryColor,
                               ),
                             ),
                           ),
@@ -368,9 +369,9 @@ Future<Map<String, String>?> showLokasiBottomSheet(
                                 style: Theme.of(context).textTheme.titleSmall,
                                 overflow: TextOverflow.ellipsis,
                               ),
-                              trailing: const Icon(
+                              trailing: Icon(
                                 Icons.chevron_right,
-                                color: Colors.indigo,
+                                color: Theme.of(context).primaryColor,
                               ),
                             ),
                           ),

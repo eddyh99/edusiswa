@@ -58,7 +58,7 @@ class _PaketKategoriViewState extends State<PaketKategoriView> {
                           child: Icon(
                             Icons.chevron_left,
                             size: 24.sp,
-                            color: Colors.indigo,
+                            color: Theme.of(context).primaryColor,
                           ),
                         ),
                       ),

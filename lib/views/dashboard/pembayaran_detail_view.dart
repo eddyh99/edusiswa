@@ -31,12 +31,12 @@ class _PembayaranDetailViewState extends State<PembayaranDetailView> {
               width: 30.sp,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(8.r)),
-                color: Colors.indigo.shade100,
+                color: Theme.of(context).primaryColor.withOpacity(0.2),
               ),
               child: Icon(
                 Icons.chevron_left,
                 size: 24.sp,
-                color: Colors.indigo,
+                color: Theme.of(context).primaryColor,
               ),
             ),
           ),
@@ -131,7 +131,8 @@ class _PembayaranDetailViewState extends State<PembayaranDetailView> {
                                 style: Theme.of(context)
                                     .textTheme
                                     .titleLarge!
-                                    .copyWith(color: Colors.indigo),
+                                    .copyWith(
+                                        color: Theme.of(context).primaryColor),
                               ),
                             ),
                             SizedBox(
@@ -145,7 +146,7 @@ class _PembayaranDetailViewState extends State<PembayaranDetailView> {
                                 leading: Icon(
                                   Icons.av_timer,
                                   size: 22.sp,
-                                  color: Colors.indigo,
+                                  color: Theme.of(context).primaryColor,
                                 ),
                                 text: Text(
                                   "Pilih Durasi Langganan",
@@ -178,8 +179,8 @@ class _PembayaranDetailViewState extends State<PembayaranDetailView> {
                             ),
                             Text(
                               "Rp. 350.000",
-                              style: textTheme.titleMedium!
-                                  .copyWith(color: Colors.indigo),
+                              style: textTheme.titleMedium!.copyWith(
+                                  color: Theme.of(context).primaryColor),
                             ),
                           ],
                         ),
@@ -311,7 +312,7 @@ class _PembayaranDetailViewState extends State<PembayaranDetailView> {
                               Text(
                                 "Rp. 1.165.500",
                                 style: textTheme.bodySmall!.copyWith(
-                                  color: Colors.indigo,
+                                  color: Theme.of(context).primaryColor,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
@@ -357,7 +358,7 @@ class _PembayaranDetailViewState extends State<PembayaranDetailView> {
                         "Rp. 1.165.500",
                         textAlign: TextAlign.right,
                         style: textTheme.titleLarge!
-                            .copyWith(color: Colors.indigo),
+                            .copyWith(color: Theme.of(context).primaryColor),
                       ),
                     ],
                   ),

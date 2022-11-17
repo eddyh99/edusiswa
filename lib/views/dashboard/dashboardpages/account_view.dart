@@ -74,7 +74,7 @@ class _AccountViewState extends State<AccountView> {
                           },
                           icon: Icon(
                             LineIcons.userEdit,
-                            color: Colors.indigo,
+                            color: Theme.of(context).primaryColor,
                             size: 32.sp,
                           ),
                         ),
@@ -233,9 +233,9 @@ class _AccountViewState extends State<AccountView> {
                             "Membership",
                             style: textTheme.titleSmall,
                           ),
-                          trailing: const Icon(
+                          trailing: Icon(
                             Icons.chevron_right,
-                            color: Colors.indigo,
+                            color: Theme.of(context).primaryColor,
                           ),
                         ),
                       ),
@@ -250,9 +250,9 @@ class _AccountViewState extends State<AccountView> {
                             "Referral",
                             style: textTheme.titleSmall,
                           ),
-                          trailing: const Icon(
+                          trailing: Icon(
                             Icons.chevron_right,
-                            color: Colors.indigo,
+                            color: Theme.of(context).primaryColor,
                           ),
                         ),
                       ),
@@ -267,9 +267,9 @@ class _AccountViewState extends State<AccountView> {
                             "Kode Saya",
                             style: textTheme.titleSmall,
                           ),
-                          trailing: const Icon(
+                          trailing: Icon(
                             Icons.chevron_right,
-                            color: Colors.indigo,
+                            color: Theme.of(context).primaryColor,
                           ),
                         ),
                       ),
@@ -303,9 +303,9 @@ class _AccountViewState extends State<AccountView> {
                             "Ubah Profil",
                             style: textTheme.titleSmall,
                           ),
-                          trailing: const Icon(
+                          trailing: Icon(
                             Icons.chevron_right,
-                            color: Colors.indigo,
+                            color: Theme.of(context).primaryColor,
                           ),
                         ),
                       ),
@@ -322,9 +322,9 @@ class _AccountViewState extends State<AccountView> {
                             "Ubah Password",
                             style: textTheme.titleSmall,
                           ),
-                          trailing: const Icon(
+                          trailing: Icon(
                             Icons.chevron_right,
-                            color: Colors.indigo,
+                            color: Theme.of(context).primaryColor,
                           ),
                         ),
                       ),
@@ -339,9 +339,9 @@ class _AccountViewState extends State<AccountView> {
                             "Pembayaran",
                             style: textTheme.titleSmall,
                           ),
-                          trailing: const Icon(
+                          trailing: Icon(
                             Icons.chevron_right,
-                            color: Colors.indigo,
+                            color: Theme.of(context).primaryColor,
                           ),
                         ),
                       ),

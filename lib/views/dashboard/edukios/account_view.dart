@@ -31,12 +31,12 @@ class _EdukiosAccountViewState extends State<EdukiosAccountView> {
               width: 30.sp,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(8.r)),
-                color: Colors.indigo.shade100,
+                color: Theme.of(context).primaryColor.withOpacity(0.2),
               ),
               child: Icon(
                 Icons.chevron_left,
                 size: 24.sp,
-                color: Colors.indigo,
+                color: Theme.of(context).primaryColor,
               ),
             ),
           ),
@@ -81,7 +81,7 @@ class _EdukiosAccountViewState extends State<EdukiosAccountView> {
                               "Konsultasi:",
                               style: textTheme.bodySmall!.copyWith(
                                 fontWeight: FontWeight.w700,
-                                color: Colors.indigo,
+                                color: Theme.of(context).primaryColor,
                               ),
                             ),
                             Text(
@@ -98,7 +98,7 @@ class _EdukiosAccountViewState extends State<EdukiosAccountView> {
                               "Exp:",
                               style: textTheme.bodySmall!.copyWith(
                                 fontWeight: FontWeight.w700,
-                                color: Colors.indigo,
+                                color: Theme.of(context).primaryColor,
                               ),
                             ),
                             Text(
@@ -145,9 +145,9 @@ class _EdukiosAccountViewState extends State<EdukiosAccountView> {
                               "Riwayat Konsultasi",
                               style: textTheme.titleSmall,
                             ),
-                            trailing: const Icon(
+                            trailing: Icon(
                               Icons.chevron_right,
-                              color: Colors.indigo,
+                              color: Theme.of(context).primaryColor,
                             ),
                           ),
                         ),
@@ -162,9 +162,9 @@ class _EdukiosAccountViewState extends State<EdukiosAccountView> {
                               "Konsultasi Berlangsung",
                               style: textTheme.titleSmall,
                             ),
-                            trailing: const Icon(
+                            trailing: Icon(
                               Icons.chevron_right,
-                              color: Colors.indigo,
+                              color: Theme.of(context).primaryColor,
                             ),
                           ),
                         ),
@@ -179,9 +179,9 @@ class _EdukiosAccountViewState extends State<EdukiosAccountView> {
                               "Tiket Konsultasi",
                               style: textTheme.titleSmall,
                             ),
-                            trailing: const Icon(
+                            trailing: Icon(
                               Icons.chevron_right,
-                              color: Colors.indigo,
+                              color: Theme.of(context).primaryColor,
                             ),
                           ),
                         ),
@@ -196,9 +196,9 @@ class _EdukiosAccountViewState extends State<EdukiosAccountView> {
                               "Ulasan",
                               style: textTheme.titleSmall,
                             ),
-                            trailing: const Icon(
+                            trailing: Icon(
                               Icons.chevron_right,
-                              color: Colors.indigo,
+                              color: Theme.of(context).primaryColor,
                             ),
                           ),
                         ),

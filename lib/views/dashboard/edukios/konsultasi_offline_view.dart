@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:ulife/utils/functions.dart';
 import 'package:ulife/widgets/card_edukios_tutor_widget.dart';
 import 'package:ulife/widgets/outlinedtile_button_widget.dart';
+import 'package:ulife/widgets/shimmer_card_widget.dart';
 
 class EdukiosKonsultasiOfflineView extends StatefulWidget {
   const EdukiosKonsultasiOfflineView({super.key});
@@ -36,12 +37,12 @@ class _EdukiosKonsultasiOfflineViewState
               width: 30.sp,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(8.r)),
-                color: Colors.indigo.shade100,
+                color: Theme.of(context).primaryColor.withOpacity(0.2),
               ),
               child: Icon(
                 Icons.chevron_left,
                 size: 24.sp,
-                color: Colors.indigo,
+                color: Theme.of(context).primaryColor,
               ),
             ),
           ),
@@ -114,9 +115,9 @@ class _EdukiosKonsultasiOfflineViewState
                                 style: textTheme.titleSmall,
                                 overflow: TextOverflow.ellipsis,
                               ),
-                              trailing: const Icon(
+                              trailing: Icon(
                                 Icons.chevron_right,
-                                color: Colors.indigo,
+                                color: Theme.of(context).primaryColor,
                               ),
                             ),
                           ),
@@ -152,36 +153,61 @@ class _EdukiosKonsultasiOfflineViewState
                                     ),
                                     SizedBox(
                                       width: 320.w,
-                                      child: ListView.separated(
-                                        shrinkWrap: true,
-                                        physics:
-                                            const NeverScrollableScrollPhysics(),
-                                        itemCount: 3,
-                                        separatorBuilder: (context, index) {
-                                          return SizedBox(
-                                            height: 15.h,
-                                          );
-                                        },
-                                        itemBuilder: (context, index) {
-                                          return CardEdukiosTutor(
-                                            avatarImage:
-                                                CachedNetworkImageProvider(
-                                              "https://placeimg.com/${(5 + index)}0/${(5 + index)}0/people",
-                                            ),
-                                            nama: "Nama Tutor $index",
-                                            ratingCount: "4.9",
-                                            description:
-                                                "Guru Matematika \u2022 50 Tahun",
-                                            isReady: index == 0 ? false : true,
-                                            location:
-                                                "Edukios KeboIwa Tenggara",
-                                            discountedPrice: "Rp. 60.000",
-                                            price: "Rp. 20.000",
-                                            onButtonPressed: () {
-                                              Get.toNamed(
-                                                  "/dashboard/edukios/konsultasi/tutor");
-                                            },
-                                          );
+                                      child: FutureBuilder(
+                                        future: Future.delayed(
+                                            const Duration(seconds: 3), () {}),
+                                        builder: (context, snapshot) {
+                                          if (snapshot.connectionState ==
+                                              ConnectionState.done) {
+                                            return ListView.separated(
+                                              shrinkWrap: true,
+                                              physics:
+                                                  const NeverScrollableScrollPhysics(),
+                                              itemCount: 3,
+                                              separatorBuilder:
+                                                  (context, index) {
+                                                return SizedBox(
+                                                  height: 15.h,
+                                                );
+                                              },
+                                              itemBuilder: (context, index) {
+                                                return CardEdukiosTutor(
+                                                  avatarImage:
+                                                      CachedNetworkImageProvider(
+                                                    "https://placeimg.com/${(5 + index)}0/${(5 + index)}0/people",
+                                                  ),
+                                                  nama: "Nama Tutor $index",
+                                                  ratingCount: "4.9",
+                                                  description:
+                                                      "Guru Matematika \u2022 50 Tahun",
+                                                  isReady:
+                                                      index == 0 ? false : true,
+                                                  location:
+                                                      "Edukios KeboIwa Tenggara",
+                                                  discountedPrice: "Rp. 60.000",
+                                                  price: "Rp. 20.000",
+                                                  onButtonPressed: () {
+                                                    Get.toNamed(
+                                                        "/dashboard/edukios/konsultasi/tutor");
+                                                  },
+                                                );
+                                              },
+                                            );
+                                          }
+                                          return ListView.separated(
+                                              shrinkWrap: true,
+                                              physics:
+                                                  const NeverScrollableScrollPhysics(),
+                                              itemCount: 3,
+                                              separatorBuilder:
+                                                  (context, index) {
+                                                return SizedBox(
+                                                  height: 15.h,
+                                                );
+                                              },
+                                              itemBuilder: (context, index) {
+                                                return const ShimmerCard();
+                                              });
                                         },
                                       ),
                                     ),

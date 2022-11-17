@@ -8,6 +8,7 @@ import 'package:ulife/views/dashboard/paketdetailtabs/materi_tab_view.dart';
 import 'package:ulife/views/dashboard/paketdetailtabs/review_tab_view.dart';
 import 'package:ulife/views/dashboard/paketdetailtabs/tentang_tab_view.dart';
 import 'package:ulife/widgets/icons_notifbadge_widget.dart';
+import 'package:ulife/widgets/keepalivepage_widget.dart';
 import 'package:ulife/widgets/paket_chip_widget.dart';
 import 'package:ulife/widgets/paket_rating_widget.dart';
 
@@ -80,7 +81,7 @@ class _PaketDetailViewState extends State<PaketDetailView> {
                                   height: 5.h,
                                   spaceBetween: 4.w,
                                   widthAnimation: 27.w),
-                              activeColor: Colors.indigo,
+                              activeColor: Theme.of(context).primaryColor,
                               disableColor: Colors.grey,
                             ),
                           ),
@@ -103,7 +104,7 @@ class _PaketDetailViewState extends State<PaketDetailView> {
                                   child: Icon(
                                     Icons.chevron_left,
                                     size: 24.sp,
-                                    color: Colors.indigo,
+                                    color: Theme.of(context).primaryColor,
                                   ),
                                 ),
                               ),
@@ -121,7 +122,7 @@ class _PaketDetailViewState extends State<PaketDetailView> {
                                       child: Icon(
                                         LineIcons.shoppingCart,
                                         size: 32.sp,
-                                        color: Colors.indigo,
+                                        color: Theme.of(context).primaryColor,
                                       ),
                                     ),
                                   ),
@@ -133,7 +134,7 @@ class _PaketDetailViewState extends State<PaketDetailView> {
                                     child: Icon(
                                       LineIcons.alternateShare,
                                       size: 32.sp,
-                                      color: Colors.indigo,
+                                      color: Theme.of(context).primaryColor,
                                     ),
                                   )
                                 ],
@@ -169,7 +170,7 @@ class _PaketDetailViewState extends State<PaketDetailView> {
                                 splashRadius: 25.r,
                                 icon: Icon(
                                   Icons.favorite_outline,
-                                  color: Colors.indigo,
+                                  color: Theme.of(context).primaryColor,
                                   size: 24.sp,
                                 ),
                               ), // Favorite
@@ -224,18 +225,18 @@ class _PaketDetailViewState extends State<PaketDetailView> {
                         tabs: [
                           Text(
                             "Tentang",
-                            style: textTheme.displaySmall!
-                                .copyWith(color: Colors.indigo),
+                            style: textTheme.displaySmall!.copyWith(
+                                color: Theme.of(context).primaryColor),
                           ),
                           Text(
                             "Materi",
-                            style: textTheme.displaySmall!
-                                .copyWith(color: Colors.indigo),
+                            style: textTheme.displaySmall!.copyWith(
+                                color: Theme.of(context).primaryColor),
                           ),
                           Text(
                             "Review",
-                            style: textTheme.displaySmall!
-                                .copyWith(color: Colors.indigo),
+                            style: textTheme.displaySmall!.copyWith(
+                                color: Theme.of(context).primaryColor),
                           ),
                         ],
                       ),
@@ -245,9 +246,9 @@ class _PaketDetailViewState extends State<PaketDetailView> {
               },
               body: const TabBarView(
                 children: [
-                  TentangTabView(),
-                  MateriTabView(),
-                  ReviewTabView(),
+                  KeepAlivePage(child: TentangTabView()),
+                  KeepAlivePage(child: MateriTabView()),
+                  KeepAlivePage(child: ReviewTabView()),
                 ],
               ),
             ),
@@ -269,8 +270,8 @@ class _PaketDetailViewState extends State<PaketDetailView> {
                     onPressed: () {},
                     child: Text(
                       "Beli Sekarang",
-                      style:
-                          textTheme.bodyMedium!.copyWith(color: Colors.indigo),
+                      style: textTheme.bodyMedium!
+                          .copyWith(color: Theme.of(context).primaryColor),
                     ),
                   ),
                 ),

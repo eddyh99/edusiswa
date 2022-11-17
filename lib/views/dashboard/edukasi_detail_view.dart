@@ -66,7 +66,7 @@ class _EdukasiDetailViewState extends State<EdukasiDetailView> {
                           child: Icon(
                             Icons.chevron_left,
                             size: 24.sp,
-                            color: Colors.indigo,
+                            color: Theme.of(context).primaryColor,
                           ),
                         ),
                       ),
@@ -248,7 +248,9 @@ class _EdukasiDetailViewState extends State<EdukasiDetailView> {
                                         "Rp. 350.000",
                                         overflow: TextOverflow.ellipsis,
                                         style: textTheme.bodyLarge!.copyWith(
-                                            color: Colors.indigo, height: 1.h),
+                                            color:
+                                                Theme.of(context).primaryColor,
+                                            height: 1.h),
                                       ), //Discount price
                                       const PaketRating(ratingCount: "4.9"),
                                     ],

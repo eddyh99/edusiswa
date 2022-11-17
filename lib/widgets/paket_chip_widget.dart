@@ -14,13 +14,13 @@ class PaketChip extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 3.h),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(10.r)),
-          color: chipColor ?? Colors.indigo.shade200),
+          color: chipColor ?? Theme.of(context).primaryColor.withOpacity(0.4)),
       child: Text(
         text,
         style: textStyle ??
             Theme.of(context).textTheme.bodySmall!.copyWith(
                   fontSize: 10.sp,
-                  color: Colors.indigo,
+                  color: Theme.of(context).primaryColor,
                 ),
       ),
     );

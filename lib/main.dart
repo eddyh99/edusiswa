@@ -429,13 +429,15 @@ class _AppMainState extends State<AppMain> {
     super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      LokasiController.initialize().then((isInitialized) {
-        if (isInitialized) {
-          OutletController.initialize();
-          Future.delayed(const Duration(seconds: 1), () {
-            Get.offNamed("/signup");
-          });
-        }
+      Future.delayed(const Duration(seconds: 2), () {
+        LokasiController.initialize().then((isInitialized) {
+          if (isInitialized) {
+            OutletController.initialize();
+            Future.delayed(const Duration(seconds: 1), () {
+              Get.offNamed("/signup");
+            });
+          }
+        });
       });
     });
   }

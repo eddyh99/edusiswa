@@ -32,12 +32,12 @@ class _MetodePembayaranViewState extends State<MetodePembayaranView> {
               width: 30.sp,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(8.r)),
-                color: Colors.indigo.shade100,
+                color: Theme.of(context).primaryColor.withOpacity(0.2),
               ),
               child: Icon(
                 Icons.chevron_left,
                 size: 24.sp,
-                color: Colors.indigo,
+                color: Theme.of(context).primaryColor,
               ),
             ),
           ),
@@ -95,7 +95,7 @@ class _MetodePembayaranViewState extends State<MetodePembayaranView> {
                         trailing: Radio<String>(
                           value: "ucoin",
                           groupValue: _selectedMethod,
-                          activeColor: Colors.indigo,
+                          activeColor: Theme.of(context).primaryColor,
                           onChanged: (String? value) {
                             if (mounted) {
                               setState(() {
@@ -146,7 +146,7 @@ class _MetodePembayaranViewState extends State<MetodePembayaranView> {
                         trailing: Radio<String>(
                           value: "dana",
                           groupValue: _selectedMethod,
-                          activeColor: Colors.indigo,
+                          activeColor: Theme.of(context).primaryColor,
                           onChanged: (String? value) {
                             if (mounted) {
                               setState(() {
@@ -178,7 +178,7 @@ class _MetodePembayaranViewState extends State<MetodePembayaranView> {
                         trailing: Radio<String>(
                           value: "ovo",
                           groupValue: _selectedMethod,
-                          activeColor: Colors.indigo,
+                          activeColor: Theme.of(context).primaryColor,
                           onChanged: (String? value) {
                             if (mounted) {
                               setState(() {
@@ -210,7 +210,7 @@ class _MetodePembayaranViewState extends State<MetodePembayaranView> {
                         trailing: Radio<String>(
                           value: "gopay",
                           groupValue: _selectedMethod,
-                          activeColor: Colors.indigo,
+                          activeColor: Theme.of(context).primaryColor,
                           onChanged: (String? value) {
                             if (mounted) {
                               setState(() {
@@ -263,7 +263,7 @@ class _MetodePembayaranViewState extends State<MetodePembayaranView> {
                         trailing: Radio<String>(
                           value: "va_bca",
                           groupValue: _selectedMethod,
-                          activeColor: Colors.indigo,
+                          activeColor: Theme.of(context).primaryColor,
                           onChanged: (String? value) {
                             if (mounted) {
                               setState(() {
@@ -297,7 +297,7 @@ class _MetodePembayaranViewState extends State<MetodePembayaranView> {
                         trailing: Radio<String>(
                           value: "va_mandiri",
                           groupValue: _selectedMethod,
-                          activeColor: Colors.indigo,
+                          activeColor: Theme.of(context).primaryColor,
                           onChanged: (String? value) {
                             if (mounted) {
                               setState(() {

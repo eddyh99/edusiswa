@@ -48,7 +48,8 @@ class _ReviewTabViewState extends State<ReviewTabView> {
                   onTap: () {},
                   child: Text(
                     "Lihat Semua",
-                    style: textTheme.titleLarge!.copyWith(color: Colors.indigo),
+                    style: textTheme.titleLarge!
+                        .copyWith(color: Theme.of(context).primaryColor),
                   ),
                 ),
               ],

@@ -55,11 +55,12 @@ class _SignUpViewState extends State<SignUpView> {
                           Text.rich(
                             TextSpan(
                               style: Theme.of(context).textTheme.displayLarge,
-                              children: const [
-                                TextSpan(text: "Hai, Selamat "),
+                              children: [
+                                const TextSpan(text: "Hai, Selamat "),
                                 TextSpan(
                                   text: "Datang",
-                                  style: TextStyle(color: Colors.indigo),
+                                  style: TextStyle(
+                                      color: Theme.of(context).primaryColor),
                                 ),
                               ],
                             ),
@@ -238,7 +239,8 @@ class _SignUpViewState extends State<SignUpView> {
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyMedium!
-                                  .copyWith(color: Colors.indigo),
+                                  .copyWith(
+                                      color: Theme.of(context).primaryColor),
                             ),
                           ),
                         ],
@@ -303,7 +305,8 @@ class _SignUpViewState extends State<SignUpView> {
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyMedium!
-                                  .copyWith(color: Colors.indigo),
+                                  .copyWith(
+                                      color: Theme.of(context).primaryColor),
                             ),
                           ),
                         ],

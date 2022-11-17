@@ -55,11 +55,12 @@ class _LoginViewState extends State<LoginView> {
                           Text.rich(
                             TextSpan(
                               style: Theme.of(context).textTheme.displayLarge,
-                              children: const [
-                                TextSpan(text: "Hai, Selamat "),
+                              children: [
+                                const TextSpan(text: "Hai, Selamat "),
                                 TextSpan(
                                   text: "Datang",
-                                  style: TextStyle(color: Colors.indigo),
+                                  style: TextStyle(
+                                      color: Theme.of(context).primaryColor),
                                 ),
                               ],
                             ),
@@ -73,10 +74,11 @@ class _LoginViewState extends State<LoginView> {
                           Text.rich(
                             TextSpan(
                               style: Theme.of(context).textTheme.displayLarge,
-                              children: const [
+                              children: [
                                 TextSpan(
                                   text: "Kembali",
-                                  style: TextStyle(color: Colors.indigo),
+                                  style: TextStyle(
+                                      color: Theme.of(context).primaryColor),
                                 ),
                               ],
                             ),
@@ -255,7 +257,8 @@ class _LoginViewState extends State<LoginView> {
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyMedium!
-                                  .copyWith(color: Colors.indigo),
+                                  .copyWith(
+                                      color: Theme.of(context).primaryColor),
                             ),
                           ),
                         ],

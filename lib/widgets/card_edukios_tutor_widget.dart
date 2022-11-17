@@ -69,7 +69,7 @@ class CardEdukiosTutor extends StatelessWidget {
                     Text(
                       description ?? "",
                       style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                            color: Colors.indigo,
+                            color: Theme.of(context).primaryColor,
                           ),
                       overflow: TextOverflow.ellipsis,
                     )
@@ -108,7 +108,7 @@ class CardEdukiosTutor extends StatelessWidget {
                   Text(
                     location,
                     style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                          color: Colors.indigo,
+                          color: Theme.of(context).primaryColor,
                           overflow: TextOverflow.ellipsis,
                         ),
                   )
@@ -150,7 +150,7 @@ class CardEdukiosTutor extends StatelessWidget {
                                   .textTheme
                                   .displaySmall!
                                   .copyWith(
-                                    color: Colors.indigo,
+                                    color: Theme.of(context).primaryColor,
                                     height: 1.2.h,
                                   ),
                             ),

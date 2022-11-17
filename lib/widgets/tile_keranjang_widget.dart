@@ -71,7 +71,7 @@ class TileKeranjang extends StatelessWidget {
                         style: Theme.of(context)
                             .textTheme
                             .bodyMedium!
-                            .copyWith(color: Colors.indigo),
+                            .copyWith(color: Theme.of(context).primaryColor),
                       ),
                       Align(
                         alignment: Alignment.bottomRight,

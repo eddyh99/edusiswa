@@ -8,7 +8,7 @@ class RatingChip extends StatelessWidget {
     this.textStyle,
     this.iconSize,
     this.foregroundColor,
-    this.backgroundColor = Colors.indigo,
+    this.backgroundColor,
     this.isOutlined = true,
     this.onTap,
   });
@@ -29,7 +29,7 @@ class RatingChip extends StatelessWidget {
           borderRadius: BorderRadius.all(
             Radius.circular(30.r),
           ),
-          color: backgroundColor,
+          color: backgroundColor ?? Theme.of(context).primaryColor,
         ),
         child: Container(
           margin: EdgeInsets.all(1.sp),
@@ -48,7 +48,9 @@ class RatingChip extends StatelessWidget {
               Icon(
                 Icons.star,
                 color: foregroundColor ??
-                    (isOutlined == true ? Colors.indigo : Colors.white),
+                    (isOutlined == true
+                        ? Theme.of(context).primaryColor
+                        : Colors.white),
                 size: iconSize ?? 18.sp,
               ),
               Text(
@@ -57,7 +59,7 @@ class RatingChip extends StatelessWidget {
                     Theme.of(context).textTheme.titleMedium!.copyWith(
                           color: foregroundColor ??
                               (isOutlined == true
-                                  ? Colors.indigo
+                                  ? Theme.of(context).primaryColor
                                   : Colors.white),
                         ),
               ),

@@ -22,7 +22,7 @@ class OutlinedTileButton extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 5.w),
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.indigo),
+          border: Border.all(color: Theme.of(context).primaryColor),
           borderRadius: BorderRadius.circular(5.r),
         ),
         child: Row(

@@ -56,12 +56,12 @@ class _UbahProfilViewState extends State<UbahProfilView> {
               width: 30.sp,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(8.r)),
-                color: Colors.indigo.shade100,
+                color: Theme.of(context).primaryColor.withOpacity(0.2),
               ),
               child: Icon(
                 Icons.chevron_left,
                 size: 24.sp,
-                color: Colors.indigo,
+                color: Theme.of(context).primaryColor,
               ),
             ),
           ),
@@ -156,9 +156,9 @@ class _UbahProfilViewState extends State<UbahProfilView> {
                         ),
                         trailing: GestureDetector(
                           onTap: () {},
-                          child: const Icon(
+                          child: Icon(
                             Icons.chevron_right,
-                            color: Colors.indigo,
+                            color: Theme.of(context).primaryColor,
                           ),
                         ),
                       ),
@@ -177,9 +177,9 @@ class _UbahProfilViewState extends State<UbahProfilView> {
                         ),
                         trailing: GestureDetector(
                           onTap: () {},
-                          child: const Icon(
+                          child: Icon(
                             Icons.chevron_right,
-                            color: Colors.indigo,
+                            color: Theme.of(context).primaryColor,
                           ),
                         ),
                       ),
@@ -198,9 +198,9 @@ class _UbahProfilViewState extends State<UbahProfilView> {
                         ),
                         trailing: GestureDetector(
                           onTap: () {},
-                          child: const Icon(
+                          child: Icon(
                             Icons.chevron_right,
-                            color: Colors.indigo,
+                            color: Theme.of(context).primaryColor,
                           ),
                         ),
                       ),
@@ -219,9 +219,9 @@ class _UbahProfilViewState extends State<UbahProfilView> {
                         ),
                         trailing: GestureDetector(
                           onTap: () {},
-                          child: const Icon(
+                          child: Icon(
                             Icons.chevron_right,
-                            color: Colors.indigo,
+                            color: Theme.of(context).primaryColor,
                           ),
                         ),
                       ),
@@ -251,9 +251,9 @@ class _UbahProfilViewState extends State<UbahProfilView> {
                             style: textTheme.bodyMedium,
                             overflow: TextOverflow.ellipsis,
                           ),
-                          trailing: const Icon(
+                          trailing: Icon(
                             Icons.chevron_right,
-                            color: Colors.indigo,
+                            color: Theme.of(context).primaryColor,
                           ),
                         ),
                       ),
@@ -288,9 +288,9 @@ class _UbahProfilViewState extends State<UbahProfilView> {
                             style: textTheme.bodyMedium,
                             overflow: TextOverflow.ellipsis,
                           ),
-                          trailing: const Icon(
+                          trailing: Icon(
                             Icons.chevron_right,
-                            color: Colors.indigo,
+                            color: Theme.of(context).primaryColor,
                           ),
                         ),
                       ),

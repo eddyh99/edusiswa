@@ -32,12 +32,12 @@ class _EdukiosProfilTutorViewState extends State<EdukiosProfilTutorView> {
                 width: 30.sp,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(8.r)),
-                  color: Colors.indigo.shade100,
+                  color: Theme.of(context).primaryColor.withOpacity(0.2),
                 ),
                 child: Icon(
                   Icons.chevron_left,
                   size: 24.sp,
-                  color: Colors.indigo,
+                  color: Theme.of(context).primaryColor,
                 ),
               ),
             ),
@@ -97,7 +97,7 @@ class _EdukiosProfilTutorViewState extends State<EdukiosProfilTutorView> {
                         Text(
                           "Guru Matematika \u2022 50 Tahun",
                           style: textTheme.bodySmall!
-                              .copyWith(color: Colors.indigo),
+                              .copyWith(color: Theme.of(context).primaryColor),
                         ),
                         SizedBox(
                           height: 5.h,
@@ -222,7 +222,9 @@ class _EdukiosProfilTutorViewState extends State<EdukiosProfilTutorView> {
                                   vertical: 3.h, horizontal: 5.w),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(3.r),
-                                color: Colors.indigo.shade100,
+                                color: Theme.of(context)
+                                    .primaryColor
+                                    .withOpacity(0.2),
                               ),
                               child: Wrap(
                                 direction: Axis.horizontal,
@@ -234,8 +236,8 @@ class _EdukiosProfilTutorViewState extends State<EdukiosProfilTutorView> {
                                   ),
                                   Text(
                                     "2k",
-                                    style: textTheme.bodySmall!
-                                        .copyWith(color: Colors.indigo),
+                                    style: textTheme.bodySmall!.copyWith(
+                                        color: Theme.of(context).primaryColor),
                                   ),
                                 ],
                               ),
@@ -245,7 +247,9 @@ class _EdukiosProfilTutorViewState extends State<EdukiosProfilTutorView> {
                                   vertical: 3.h, horizontal: 5.w),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(3.r),
-                                color: Colors.indigo.shade100,
+                                color: Theme.of(context)
+                                    .primaryColor
+                                    .withOpacity(0.2),
                               ),
                               child: Wrap(
                                 direction: Axis.horizontal,
@@ -257,8 +261,8 @@ class _EdukiosProfilTutorViewState extends State<EdukiosProfilTutorView> {
                                   ),
                                   Text(
                                     "2k",
-                                    style: textTheme.bodySmall!
-                                        .copyWith(color: Colors.indigo),
+                                    style: textTheme.bodySmall!.copyWith(
+                                        color: Theme.of(context).primaryColor),
                                   ),
                                 ],
                               ),
@@ -268,7 +272,9 @@ class _EdukiosProfilTutorViewState extends State<EdukiosProfilTutorView> {
                                   vertical: 3.h, horizontal: 5.w),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(3.r),
-                                color: Colors.indigo.shade100,
+                                color: Theme.of(context)
+                                    .primaryColor
+                                    .withOpacity(0.2),
                               ),
                               child: Wrap(
                                 direction: Axis.horizontal,
@@ -280,8 +286,8 @@ class _EdukiosProfilTutorViewState extends State<EdukiosProfilTutorView> {
                                   ),
                                   Text(
                                     "12",
-                                    style: textTheme.bodySmall!
-                                        .copyWith(color: Colors.indigo),
+                                    style: textTheme.bodySmall!.copyWith(
+                                        color: Theme.of(context).primaryColor),
                                   ),
                                 ],
                               ),
@@ -306,8 +312,8 @@ class _EdukiosProfilTutorViewState extends State<EdukiosProfilTutorView> {
                             child: Text(
                               "Lihat Semua Ulasan",
                               textAlign: TextAlign.center,
-                              style: textTheme.titleLarge!
-                                  .copyWith(color: Colors.indigo),
+                              style: textTheme.titleLarge!.copyWith(
+                                  color: Theme.of(context).primaryColor),
                             ),
                           ),
                         ),
@@ -352,7 +358,7 @@ class _EdukiosProfilTutorViewState extends State<EdukiosProfilTutorView> {
                               .textTheme
                               .displaySmall!
                               .copyWith(
-                                color: Colors.indigo,
+                                color: Theme.of(context).primaryColor,
                                 height: 1.2.h,
                               ),
                         ),

@@ -31,7 +31,8 @@ class UbahPasswordTextFormField extends StatelessWidget {
           borderSide: BorderSide(width: 3.h, color: Colors.grey.shade300),
         ),
         focusedBorder: UnderlineInputBorder(
-          borderSide: BorderSide(width: 3.h, color: Colors.indigo),
+          borderSide:
+              BorderSide(width: 3.h, color: Theme.of(context).primaryColor),
         ),
         errorBorder: UnderlineInputBorder(
           borderSide: BorderSide(width: 3.h, color: Colors.red),

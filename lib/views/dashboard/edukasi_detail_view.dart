@@ -9,6 +9,7 @@ import 'package:ulife/widgets/edukasidetail_text_widget.dart';
 import 'package:ulife/widgets/paket_card_widget.dart';
 import 'package:ulife/widgets/paket_chip_widget.dart';
 import 'package:ulife/widgets/paket_rating_widget.dart';
+import 'package:ulife/widgets/shimmer_card_widget.dart';
 
 class EdukasiDetailView extends StatefulWidget {
   const EdukasiDetailView({super.key});
@@ -190,79 +191,104 @@ class _EdukasiDetailViewState extends State<EdukasiDetailView> {
                             style: textTheme.displaySmall,
                           ),
                         ),
-                        Column(
-                          children: [
-                            //dummy data generate
-                            for (int x = 0; x < 3; x++) ...[
-                              SizedBox(
-                                height: 24.h,
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  Get.toNamed("/dashboard/paket-detail",
-                                      arguments: {"paket": "ID00$x"});
-                                },
-                                child: PaketCard(
-                                  height: 120.h,
-                                  width: 320.w,
-                                  borderRadius: 10.r,
-                                  contentMargin: EdgeInsets.symmetric(
-                                      horizontal: 10.sp, vertical: 10.sp),
-                                  leadingImage: Image.asset(
-                                    "assets/images/paket-leading-image.png",
-                                    fit: BoxFit.cover,
-                                    height: 100.sp,
-                                    width: 100.sp,
-                                  ),
-                                  leadingBorderRadius: 12.r,
-                                  title: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      const PaketChip(text: "Berhitung"),
-                                      FittedBox(
-                                        fit: BoxFit.scaleDown,
-                                        child: Text(
-                                          "Berhitung untuk TK",
-                                          overflow: TextOverflow.ellipsis,
-                                          style: textTheme.bodyLarge!
-                                              .copyWith(height: 1.3.h),
+                        FutureBuilder(
+                          future:
+                              Future.delayed(const Duration(seconds: 2), () {}),
+                          builder: (context, snapshot) {
+                            if (snapshot.connectionState ==
+                                ConnectionState.done) {
+                              return Column(
+                                children: [
+                                  //dummy data generate
+                                  for (int x = 0; x < 3; x++) ...[
+                                    SizedBox(
+                                      height: 24.h,
+                                    ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        Get.toNamed("/dashboard/paket-detail",
+                                            arguments: {"paket": "ID00$x"});
+                                      },
+                                      child: PaketCard(
+                                        height: 120.h,
+                                        width: 320.w,
+                                        borderRadius: 10.r,
+                                        contentMargin: EdgeInsets.symmetric(
+                                            horizontal: 10.sp, vertical: 10.sp),
+                                        leadingImage: Image.asset(
+                                          "assets/images/paket-leading-image.png",
+                                          fit: BoxFit.cover,
+                                          height: 100.sp,
+                                          width: 100.sp,
                                         ),
-                                      ), //Paket title
-                                    ],
-                                  ),
-                                  subtitle: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Rp. 1.350.000",
-                                        style: textTheme.bodySmall!.copyWith(
-                                          fontSize: 10.sp,
-                                          color: Colors.grey,
-                                          decoration:
-                                              TextDecoration.lineThrough,
+                                        leadingBorderRadius: 12.r,
+                                        title: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            const PaketChip(text: "Berhitung"),
+                                            FittedBox(
+                                              fit: BoxFit.scaleDown,
+                                              child: Text(
+                                                "Berhitung untuk TK",
+                                                overflow: TextOverflow.ellipsis,
+                                                style: textTheme.bodyLarge!
+                                                    .copyWith(height: 1.3.h),
+                                              ),
+                                            ), //Paket title
+                                          ],
                                         ),
-                                      ), //Initial price
-                                      Text(
-                                        "Rp. 350.000",
-                                        overflow: TextOverflow.ellipsis,
-                                        style: textTheme.bodyLarge!.copyWith(
-                                            color:
-                                                Theme.of(context).primaryColor,
-                                            height: 1.h),
-                                      ), //Discount price
-                                      const PaketRating(ratingCount: "4.9"),
-                                    ],
+                                        subtitle: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              "Rp. 1.350.000",
+                                              style:
+                                                  textTheme.bodySmall!.copyWith(
+                                                fontSize: 10.sp,
+                                                color: Colors.grey,
+                                                decoration:
+                                                    TextDecoration.lineThrough,
+                                              ),
+                                            ), //Initial price
+                                            Text(
+                                              "Rp. 350.000",
+                                              overflow: TextOverflow.ellipsis,
+                                              style: textTheme.bodyLarge!
+                                                  .copyWith(
+                                                      color: Theme.of(context)
+                                                          .primaryColor,
+                                                      height: 1.h),
+                                            ), //Discount price
+                                            const PaketRating(
+                                                ratingCount: "4.9"),
+                                          ],
+                                        ),
+                                        ribbon: const CardsRibbon(
+                                            text: "Best Seller"),
+                                        badge: const CardsBadge(text: "Detail"),
+                                      ),
+                                    ),
+                                  ],
+                                ],
+                              );
+                            }
+                            return Column(
+                              children: [
+                                for (int x = 0; x < 3; x++) ...[
+                                  SizedBox(
+                                    height: 24.h,
                                   ),
-                                  ribbon:
-                                      const CardsRibbon(text: "Best Seller"),
-                                  badge: const CardsBadge(text: "Detail"),
-                                ),
-                              ),
-                            ],
-                          ],
-                        )
+                                  SizedBox(
+                                    width: 320.w,
+                                    child: const ShimmerCard(),
+                                  ),
+                                ]
+                              ],
+                            );
+                          },
+                        ),
                       ],
                     ),
                   ),

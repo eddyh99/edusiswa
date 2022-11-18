@@ -45,10 +45,10 @@ class NoGlowScrollBehavior extends MaterialScrollBehavior {
 
 class UlifeApp extends StatelessWidget {
   const UlifeApp({super.key});
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    MaterialColor themeColor = Colors.indigo;
     return ScreenUtilInit(
       designSize: const Size(360, 800),
       minTextAdapt: true,
@@ -61,7 +61,7 @@ class UlifeApp extends StatelessWidget {
           theme: ThemeData(
             fontFamily: "Poppins",
             brightness: Brightness.light,
-            primarySwatch: Colors.indigo,
+            primarySwatch: themeColor,
             appBarTheme: AppBarTheme(
                 backgroundColor: Theme.of(context).scaffoldBackgroundColor),
             textTheme: TextTheme(
@@ -107,9 +107,9 @@ class UlifeApp extends StatelessWidget {
               decorationColor: Colors.grey,
             ),
             textSelectionTheme: TextSelectionThemeData(
-              cursorColor: Colors.indigo,
-              selectionColor: Colors.indigo.shade200,
-              selectionHandleColor: Colors.indigo,
+              cursorColor: themeColor,
+              selectionColor: themeColor.shade200,
+              selectionHandleColor: themeColor,
             ),
             checkboxTheme: CheckboxThemeData(
               shape: RoundedRectangleBorder(
@@ -122,9 +122,9 @@ class UlifeApp extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(5.r)),
                 ),
-                backgroundColor: Colors.indigo,
+                backgroundColor: themeColor,
                 foregroundColor: Colors.white,
-                disabledBackgroundColor: Colors.indigo.shade200,
+                disabledBackgroundColor: themeColor.shade200,
                 disabledForegroundColor: Colors.white,
               ),
             ),
@@ -132,7 +132,7 @@ class UlifeApp extends StatelessWidget {
               style: OutlinedButton.styleFrom(
                 side: BorderSide(
                   width: 1.w,
-                  color: Colors.indigo,
+                  color: themeColor,
                 ),
               ),
             ),
@@ -158,9 +158,9 @@ class UlifeApp extends StatelessWidget {
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(5.r),
-                borderSide: const BorderSide(
+                borderSide: BorderSide(
                   width: 1.5,
-                  color: Colors.indigo,
+                  color: themeColor,
                 ),
               ),
               errorBorder: OutlineInputBorder(
@@ -189,7 +189,7 @@ class UlifeApp extends StatelessWidget {
           darkTheme: ThemeData(
             fontFamily: "Poppins",
             brightness: Brightness.dark,
-            primarySwatch: Colors.indigo,
+            primarySwatch: themeColor,
             appBarTheme: AppBarTheme(
                 backgroundColor: Theme.of(context).scaffoldBackgroundColor),
             textTheme: TextTheme(
@@ -235,9 +235,9 @@ class UlifeApp extends StatelessWidget {
               decorationColor: Colors.grey,
             ),
             textSelectionTheme: TextSelectionThemeData(
-              cursorColor: Colors.indigo,
-              selectionColor: Colors.indigo.shade200,
-              selectionHandleColor: Colors.indigo,
+              cursorColor: themeColor,
+              selectionColor: themeColor.shade200,
+              selectionHandleColor: themeColor,
             ),
             checkboxTheme: CheckboxThemeData(
               shape: RoundedRectangleBorder(
@@ -250,9 +250,9 @@ class UlifeApp extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(5.r)),
                 ),
-                backgroundColor: Colors.indigo,
+                backgroundColor: themeColor,
                 foregroundColor: Colors.white,
-                disabledBackgroundColor: Colors.indigo.shade800,
+                disabledBackgroundColor: themeColor.shade800,
                 disabledForegroundColor: Colors.white,
               ),
             ),
@@ -260,7 +260,7 @@ class UlifeApp extends StatelessWidget {
               style: OutlinedButton.styleFrom(
                 side: BorderSide(
                   width: 1.w,
-                  color: Colors.indigo,
+                  color: themeColor,
                 ),
               ),
             ),
@@ -286,9 +286,9 @@ class UlifeApp extends StatelessWidget {
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(5.r),
-                borderSide: const BorderSide(
+                borderSide: BorderSide(
                   width: 1.5,
-                  color: Colors.indigo,
+                  color: themeColor,
                 ),
               ),
               errorBorder: OutlineInputBorder(
@@ -427,7 +427,6 @@ class _AppMainState extends State<AppMain> {
   @override
   void initState() {
     super.initState();
-
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Future.delayed(const Duration(seconds: 2), () {
         LokasiController.initialize().then((isInitialized) {

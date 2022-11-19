@@ -244,7 +244,7 @@ class _HomeViewState extends State<HomeView> {
                     ),
                   ),
                   SizedBox(
-                    height: 9.h,
+                    height: 20.h,
                   ),
                   SizedBox(
                     width: 320.w,
@@ -256,7 +256,10 @@ class _HomeViewState extends State<HomeView> {
                           style: textTheme.displaySmall,
                         ),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Get.toNamed("/dashboard/paket-kategori",
+                                arguments: {"kategori": "UEducation"});
+                          },
                           child: Row(
                             children: [
                               Text(
@@ -275,7 +278,7 @@ class _HomeViewState extends State<HomeView> {
                     ),
                   ),
                   SizedBox(
-                    height: 14.h,
+                    height: 9.h,
                   ),
                   //UEducation paket list
                   SizedBox(
@@ -377,7 +380,7 @@ class _HomeViewState extends State<HomeView> {
                     ),
                   ),
                   SizedBox(
-                    height: 9.h,
+                    height: 15.h,
                   ),
                   SizedBox(
                     width: 320.w,
@@ -389,7 +392,10 @@ class _HomeViewState extends State<HomeView> {
                           style: textTheme.displaySmall,
                         ),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Get.toNamed("/dashboard/paket-kategori",
+                                arguments: {"kategori": "UTalent"});
+                          },
                           child: Row(
                             children: [
                               Text(
@@ -408,7 +414,7 @@ class _HomeViewState extends State<HomeView> {
                     ),
                   ),
                   SizedBox(
-                    height: 14.h,
+                    height: 9.h,
                   ),
                   //UTalent paket list
                   SizedBox(
@@ -510,7 +516,7 @@ class _HomeViewState extends State<HomeView> {
                     ),
                   ),
                   SizedBox(
-                    height: 9.h,
+                    height: 15.h,
                   ),
                   SizedBox(
                     width: 320.w,
@@ -518,11 +524,14 @@ class _HomeViewState extends State<HomeView> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "UEducation",
+                          "codU",
                           style: textTheme.displaySmall,
                         ),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Get.toNamed("/dashboard/paket-kategori",
+                                arguments: {"kategori": "codU"});
+                          },
                           child: Row(
                             children: [
                               Text(
@@ -541,7 +550,7 @@ class _HomeViewState extends State<HomeView> {
                     ),
                   ),
                   SizedBox(
-                    height: 14.h,
+                    height: 9.h,
                   ),
                   //codU paket list
                   SizedBox(

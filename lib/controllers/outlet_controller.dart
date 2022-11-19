@@ -1,4 +1,4 @@
-import 'package:ulife/models/outlet_model.dart';
+import '../models/outlet_model.dart';
 
 class OutletController {
   static late List<Outlet> outlets;

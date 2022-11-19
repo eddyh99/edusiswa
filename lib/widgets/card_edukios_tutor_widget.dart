@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ulife/widgets/paket_rating_widget.dart';
+import '../widgets/paket_rating_widget.dart';
 
 class CardEdukiosTutor extends StatelessWidget {
   const CardEdukiosTutor({

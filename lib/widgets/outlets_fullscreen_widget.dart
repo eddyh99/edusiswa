@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ulife/models/outlet_model.dart';
-import 'package:ulife/widgets/cards_detailbadge_widget.dart';
-import 'package:ulife/widgets/paket_card_widget.dart';
+import '../models/outlet_model.dart';
+import '../widgets/cards_detailbadge_widget.dart';
+import '../widgets/paket_card_widget.dart';
 
 class PilihOutletsFullScreen extends StatelessWidget {
   const PilihOutletsFullScreen({

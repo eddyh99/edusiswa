@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ulife/widgets/card_usersreview_widget.dart';
-import 'package:ulife/widgets/paket_rating_widget.dart';
-import 'package:ulife/widgets/rating_chip_widget.dart';
+import '../../../widgets/card_usersreview_widget.dart';
+import '../../../widgets/paket_rating_widget.dart';
+import '../../../widgets/rating_chip_widget.dart';
 
 class ReviewTabView extends StatefulWidget {
   const ReviewTabView({super.key});

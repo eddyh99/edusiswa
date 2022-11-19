@@ -1,12 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ulife/controllers/lokasi_controller.dart';
-import 'package:ulife/controllers/outlet_controller.dart';
-import 'package:ulife/utils/extensions.dart';
-import 'package:ulife/widgets/lokasi_fullscreen_widget.dart';
-import 'package:ulife/widgets/outlets_fullscreen_widget.dart';
-import 'package:ulife/widgets/outlinedtile_button_widget.dart';
+import '../controllers/lokasi_controller.dart';
+import '../controllers/outlet_controller.dart';
+import '../utils/extensions.dart';
+import '../widgets/lokasi_fullscreen_widget.dart';
+import '../widgets/outlets_fullscreen_widget.dart';
+import '../widgets/outlinedtile_button_widget.dart';
 
 void printDebug(Object? object) {
   if (kDebugMode) {

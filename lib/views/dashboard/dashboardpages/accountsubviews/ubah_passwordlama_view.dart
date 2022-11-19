@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:ulife/widgets/textformfield_ubahpassword_widget.dart';
+import '../../../../widgets/textformfield_ubahpassword_widget.dart';
 
 class UbahPasswordLamaView extends StatefulWidget {
   const UbahPasswordLamaView({super.key});

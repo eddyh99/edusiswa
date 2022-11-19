@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ulife/widgets/materiplayer_card_widget.dart';
+import '../../../widgets/materiplayer_card_widget.dart';
 
 class MateriTabView extends StatefulWidget {
   const MateriTabView({super.key});

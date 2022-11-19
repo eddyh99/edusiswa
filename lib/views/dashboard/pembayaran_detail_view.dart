@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:ulife/widgets/outlinedtile_button_widget.dart';
+import '../../widgets/outlinedtile_button_widget.dart';
 
 class PembayaranDetailView extends StatefulWidget {
   const PembayaranDetailView({super.key});

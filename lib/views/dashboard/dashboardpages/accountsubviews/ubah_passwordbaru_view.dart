@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:ulife/utils/extensions.dart';
-import 'package:ulife/widgets/textformfield_ubahpassword_widget.dart';
+import '../../../../utils/extensions.dart';
+import '../../../../widgets/textformfield_ubahpassword_widget.dart';
 
 class UbahPasswordBaruView extends StatefulWidget {
   const UbahPasswordBaruView({super.key});

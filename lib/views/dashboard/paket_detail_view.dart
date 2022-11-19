@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:ulife/views/dashboard/paketdetailtabs/materi_tab_view.dart';
-import 'package:ulife/views/dashboard/paketdetailtabs/review_tab_view.dart';
-import 'package:ulife/views/dashboard/paketdetailtabs/tentang_tab_view.dart';
-import 'package:ulife/widgets/icons_notifbadge_widget.dart';
-import 'package:ulife/widgets/keepalivepage_widget.dart';
-import 'package:ulife/widgets/paket_chip_widget.dart';
-import 'package:ulife/widgets/paket_rating_widget.dart';
+import '../../views/dashboard/paketdetailtabs/materi_tab_view.dart';
+import '../../views/dashboard/paketdetailtabs/review_tab_view.dart';
+import '../../views/dashboard/paketdetailtabs/tentang_tab_view.dart';
+import '../../widgets/icons_notifbadge_widget.dart';
+import '../../widgets/keepalivepage_widget.dart';
+import '../../widgets/paket_chip_widget.dart';
+import '../../widgets/paket_rating_widget.dart';
 
 class PaketDetailView extends StatefulWidget {
   const PaketDetailView({super.key});

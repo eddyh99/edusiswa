@@ -2,14 +2,14 @@ import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:ulife/utils/extensions.dart';
-import 'package:ulife/widgets/cards_detailbadge_widget.dart';
-import 'package:ulife/widgets/cards_ribbon_widget.dart';
-import 'package:ulife/widgets/edukasidetail_text_widget.dart';
-import 'package:ulife/widgets/paket_card_widget.dart';
-import 'package:ulife/widgets/paket_chip_widget.dart';
-import 'package:ulife/widgets/paket_rating_widget.dart';
-import 'package:ulife/widgets/shimmer_card_widget.dart';
+import '../../utils/extensions.dart';
+import '../../widgets/cards_detailbadge_widget.dart';
+import '../../widgets/cards_ribbon_widget.dart';
+import '../../widgets/edukasidetail_text_widget.dart';
+import '../../widgets/paket_card_widget.dart';
+import '../../widgets/paket_chip_widget.dart';
+import '../../widgets/paket_rating_widget.dart';
+import '../../widgets/shimmer_card_widget.dart';
 
 class EdukasiDetailView extends StatefulWidget {
   const EdukasiDetailView({super.key});

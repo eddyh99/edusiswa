@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ulife/models/lokasi_model.dart';
+import '../models/lokasi_model.dart';
 
 class PilihLokasiFullScreen extends StatelessWidget {
   const PilihLokasiFullScreen({

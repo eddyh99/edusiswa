@@ -2,10 +2,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:ulife/utils/functions.dart';
-import 'package:ulife/widgets/card_edukios_tutor_widget.dart';
-import 'package:ulife/widgets/outlinedtile_button_widget.dart';
-import 'package:ulife/widgets/shimmer_card_widget.dart';
+import '../../../utils/functions.dart';
+import '../../../widgets/card_edukios_tutor_widget.dart';
+import '../../../widgets/outlinedtile_button_widget.dart';
+import '../../../widgets/shimmer_card_widget.dart';
 
 class EdukiosKonsultasiOfflineView extends StatefulWidget {
   const EdukiosKonsultasiOfflineView({super.key});

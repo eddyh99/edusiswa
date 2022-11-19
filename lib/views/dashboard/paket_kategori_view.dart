@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:ulife/utils/extensions.dart';
-import 'package:ulife/widgets/cards_detailbadge_widget.dart';
-import 'package:ulife/widgets/paket_card_widget.dart';
+import '../../utils/extensions.dart';
+import '../../widgets/cards_detailbadge_widget.dart';
+import '../../widgets/paket_card_widget.dart';
 
 class PaketKategoriView extends StatefulWidget {
   const PaketKategoriView({super.key});

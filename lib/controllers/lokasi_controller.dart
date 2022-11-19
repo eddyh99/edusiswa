@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
-import 'package:ulife/models/lokasi_model.dart';
-import 'package:ulife/utils/functions.dart';
+import '../models/lokasi_model.dart';
+import '../utils/functions.dart';
 
 class LokasiController {
   static late List<Lokasi> provinsi;

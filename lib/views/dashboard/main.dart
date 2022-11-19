@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:ulife/utils/extensions.dart';
-import 'package:ulife/views/dashboard/dashboardpages/account_view.dart';
-import 'package:ulife/views/dashboard/dashboardpages/home_view.dart';
-import 'package:ulife/views/dashboard/dashboardpages/liveclass_view.dart';
-import 'package:ulife/views/dashboard/dashboardpages/myclass_view.dart';
-import 'package:ulife/views/dashboard/dashboardpages/transaction_view.dart';
-import 'package:ulife/widgets/keepalivepage_widget.dart';
+import '../../utils/extensions.dart';
+import '../../views/dashboard/dashboardpages/account_view.dart';
+import '../../views/dashboard/dashboardpages/home_view.dart';
+import '../../views/dashboard/dashboardpages/liveclass_view.dart';
+import '../../views/dashboard/dashboardpages/myclass_view.dart';
+import '../../views/dashboard/dashboardpages/transaction_view.dart';
+import '../../widgets/keepalivepage_widget.dart';
 
 class DashboardMain extends StatefulWidget {
   const DashboardMain({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:ulife/widgets/tile_keranjang_widget.dart';
+import '../../widgets/tile_keranjang_widget.dart';
 
 class KeranjangView extends StatefulWidget {
   const KeranjangView({super.key});

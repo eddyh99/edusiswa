@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:ulife/widgets/textformfield_toplabeled_widget.dart';
+import '../widgets/textformfield_toplabeled_widget.dart';
 
 class SignUpView extends StatefulWidget {
   const SignUpView({super.key});

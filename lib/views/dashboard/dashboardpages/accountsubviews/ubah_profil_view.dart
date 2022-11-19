@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:ulife/utils/extensions.dart';
-import 'package:ulife/utils/functions.dart';
-import 'package:ulife/widgets/textfield_ubahprofil_widget.dart';
+import '../../../../utils/extensions.dart';
+import '../../../../utils/functions.dart';
+import '../../../../widgets/textfield_ubahprofil_widget.dart';
 
 class UbahProfilView extends StatefulWidget {
   const UbahProfilView({super.key});

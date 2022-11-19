@@ -2,7 +2,7 @@
     package="com.softwarebali.ulife">
     <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="ulife"
+        android:label="Ulife"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
